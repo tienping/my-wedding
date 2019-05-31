@@ -1,0 +1,320 @@
+.FormButton-component {
+    display: inline-block;
+
+    &.attach {
+        position: relative;
+
+        .page-action-modal {
+            display: block !important;
+
+            &.triggered{
+                top: inherit !important;
+                left: inherit !important;
+            }
+        }
+    }
+
+    &.popout {
+        .page-action-modal.triggered{
+            position: fixed !important;
+            top: 10% !important;
+        }
+    }
+}
+
+#page-action-modal.page-action-modal {
+    z-index: 2;
+    right: 0;
+    position: absolute;
+    display: none;
+    box-shadow: 0px 0px 0px transparent;
+    transition: background-color 1s, height .5s, width .5s, left 1s, box-shadow .75s;
+
+    &.my-custom-button {
+        padding: 0;
+        .default-button-text { padding: 1.1rem 3rem; }
+    }
+
+    .sticky-container {
+        position: -webkit-sticky;
+        position: -moz-sticky;
+        position: -ms-sticky;
+        position: -o-sticky;
+        position: sticky;
+        z-index: 1;
+        top: 0;
+
+        .modal-close-button {
+            z-index: 100;
+            top: 0rem;
+            right: 0rem;
+            cursor: pointer;
+            position: absolute;
+            margin-right: -2rem;
+
+            i { padding: 0.3rem }
+        }
+
+        .become-title {
+            height: 35px;
+            white-space: nowrap;
+            transition: background-color 1s, height 1s, width 1s, left 1s, font-size 1s, font-weight 1s;
+            padding: .6rem 1rem;
+            margin: 1rem -1rem;
+            background-color: RGBA(255, 255, 255, 0.85);
+        }
+
+        .title-underline {
+            background-color: gray;
+            margin: 0.2rem -1.5rem;
+            padding-bottom: 0.1rem;
+        }
+    }
+
+    &.triggered {
+        z-index: 1010;
+        padding: 0 3rem;
+        background-color: white;
+        max-height: 80vh;
+        color: black;
+        cursor: default;
+        overflow: auto;
+        box-shadow: 0px 2px 15px 1px RGBA(0, 0, 0, 0.3);
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        display: block;
+
+        @media screen and (min-width: 1100px) { width: 1000px; }
+
+        .become-title {
+            font-family: cursive;
+            font-size: 120%;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .page-action-modal-toggle {
+            display: block;
+        }
+    }
+}
+
+#page-action-modal-wrapper {
+    z-index: -1000;
+    opacity: 0;
+    transition: opacity 1s;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: RGBA(0, 0, 0, 0.5);
+
+    &.triggered {
+        z-index: 1005;
+        opacity: 1;
+    }
+}
+
+.page-action-modal-toggle {
+    display: none;
+    text-align: left;
+
+    .modal-form-fields-container {
+        margin-bottom: 3rem;
+
+        .submit-button {
+            text-align: center;
+            padding-top: 7rem;
+        }
+    }
+
+    .field-input {
+        padding: 0.5rem 0;
+
+        .default-input-textarea { width: 100%; min-height: 135px; }
+        .default-input-textbox { width: 100%; }
+
+        .field-label {
+            color: black;
+            font-size: 85%;
+        }
+
+        .field-info {
+            position: relative;
+
+            .info-icon {
+                margin-left: 1rem;
+                color: #67b6ff;
+                border-radius: 50%;
+            }
+            .info-content {
+                display: none;
+                position: absolute;
+                font-size: 80%;
+                color: gray;
+                border: 2px solid #67b6ff;
+                background-color: #FAFAFA;
+                border-radius: 15px;
+                padding: 5px;
+                left: -50px;
+                width: 150px;
+            }
+
+            &:hover {
+                .info-icon {
+                    color: #3E0E0A;
+                }
+
+                .info-content {
+                    z-index: 10;
+                    display: inline-block;
+                }
+            }
+        }
+
+        .field-hint {
+            .hint-content {
+                font-size: 70%;
+                color: #AAAAAA;
+            }
+        }
+
+        .mandatory-indicator {
+            color: red;
+            font-weight: 700;
+
+            .mandatory-text {
+                font-weight: 300;
+                font-size: 60%;
+                vertical-align: text-top;
+                padding-left: 3px;
+            }
+        }
+
+        .link-for-sample {
+            line-height: 70%;
+            font-size: 70%;
+            text-decoration: underline;
+            a { color: blue; }
+        }
+
+        input {
+            padding: 0.25rem 0.75rem;
+        }
+
+        .my-custom-imageUploader {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            max-width: 50rem;
+            box-shadow: 0px 0px 1px 0px RGBA(0, 0, 0, 0.3);
+
+            .filepond--root { margin-bottom: 0; }
+
+            .image-preview {
+                height: 130px;
+                text-align: center;
+                padding: .5rem 1rem;
+                position: relative;
+                cursor: default;
+
+                .close-btn {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    padding: .5rem .75rem;
+                    background: RGBA(255, 255, 255, 0.5);
+                    border-radius: 50%;
+                    z-index: 1;
+                    cursor: pointer;
+                }
+
+                .image-holder { cursor: pointer; }
+
+                .previewer-image {
+                    max-height: 150px;
+                    max-width: 120px;
+                }
+
+                .previewer-image,
+                .previewer-placeholder {
+                    position: relative;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+                .previewer-placeholder {
+                    border: 1px solid black;
+                    padding: 3rem;
+                    border-radius: 15px;
+                    opacity: 0.2;
+                }
+            }
+
+            .upload-action {
+                text-align: center;
+
+                .upload-button {
+                    border-color: #3E0E0A;
+                    border-width: 2px;
+                    color: #3E0E0A;
+                    background-color: RGBA(155, 0, 75, 0.15);
+                    margin: 0;
+                    font-size: 75%;
+                    padding: .5rem 1.5rem;
+                    margin-bottom: .75rem;
+                    margin: 0.5rem 0;
+                    border-radius: 10px;
+                }
+
+                .upload-input {
+                    display: none;
+                }
+            }
+
+            input { font-size: 80%; max-width: 100%; cursor: pointer; }
+        }
+
+        // &.input
+
+        &.input-selection { max-width: 50rem; }
+
+        .input-type-imagelink {
+            .imagelink-previewer-item {
+                .imagelink-previewer-inner-div {
+                    background-color: #F5F5F5;
+                    display: inline-block;
+                    border: 1px solid #3E0E0A;
+                    margin-bottom: 10px;
+                    border-radius: 30px;
+                    padding: 15px;
+
+                    .mobile-graphic-previewer,
+                    .desktop-graphic-previewer {
+                        margin: .5rem;
+                        display: inline-block;
+                        text-align: center;
+                    }
+                }
+            }
+
+            .no-image-placeholder {
+                display: block;
+                width: 100px;
+                height: 100px;
+                background-color: lightgray;
+                color: gray;
+                border: 1px solid gray;
+
+                .middle-align {
+                    position: relative;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+
+        .switch-button { vertical-align: middle; }
+    }
+}

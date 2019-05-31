@@ -1,0 +1,29 @@
+@import "app/theme-variables";
+
+.top-navigation-bar {
+    margin-top: -1px;
+    height: 30px;
+    position: relative;
+
+    .top-navigation-bar-bg{
+        background-color: $tertiary_bg;
+        opacity: 0.5;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    .top-nav-item {
+        display: inline-block;
+
+        .top-nav-button,
+        .top-nav-dropdown {
+            color: green;
+            border-color: green;
+            padding: 0.5rem 1rem;
+            margin: 0 1rem;
+        }
+    }
+}

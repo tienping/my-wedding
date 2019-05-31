@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- The first thing in any HTML file should be the charset -->
+        <meta charset="utf-8">
+        <!-- Make the page mobile compatible -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Allow installing the app to the homescreen -->
+        <link rel="manifest" href="manifest.json">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="shortcut icon" href="favicon.ico">
+
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Clicker+Script" rel="stylesheet">
+
+        <!-- Animate.css -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.1/animate.min.css">
+        <!-- Icomoon Icon Fonts-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/icomoon@1.0.0/style.css">
+        <!-- Simple Line Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
+        <!-- Flexslider  -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.0/flexslider.min.css">
+        <!-- Owl Carousel -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+        <!-- Magnific popup  -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/0.9.9/magnific-popup.min.css">
+        <!-- Bootstrap  -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+
+        <!-- Modernizr JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+        <!-- material ui dependencies -->
+        <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script src="https://unpkg.com/react@latest/umd/react.development.js" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/@material-ui/core/umd/material-ui.development.js" />
+        <script src="https://unpkg.com/react-dom@latest/umd/react-dom.development.js" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/babel-standalone@latest/babel.min.js" crossorigin="anonymous"></script> -->
+
+        <meta name="mobile-web-app-capable" content="yes">
+        <title>WhenImeetU</title>
+
+        <!-- jQuery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <!-- jQuery Easing -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <!-- Waypoints -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.min.js"></script>
+        <!-- YTPlayer -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.1.1/jquery.mb.YTPlayer.min.js"></script>
+        <!-- Flexslider -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.0/jquery.flexslider.min.js"></script>
+        <!-- Owl Carousel -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+        <!-- Parallax -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery.stellar@0.6.2/jquery.stellar.js"></script>
+        <!-- Magnific Popup -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/0.9.9/jquery.magnific-popup.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                // MagnificPopup
+                var magnifPopup = function() {
+                    $('.image-popup').magnificPopup({
+                        type: 'image',
+                        removalDelay: 300,
+                        mainClass: 'mfp-with-zoom',
+                        gallery:{
+                            enabled:true
+                        },
+                        zoom: {
+                            enabled: true, // By default it's false, so don't forget to enable it
+
+                            duration: 300, // duration of the effect, in milliseconds
+                            easing: 'ease-in-out', // CSS transition easing function
+
+                            // The "opener" function should return the element from which popup will be zoomed in
+                            // and to which popup will be scaled down
+                            // By defailt it looks for an image tag:
+                            opener: function(openerElement) {
+                            // openerElement is the element on which popup was initialized, in this case its <a> tag
+                            // you don't need to add "opener" option if this code matches your needs, it's defailt one.
+                            return openerElement.is('img') ? openerElement : openerElement.find('img');
+                            }
+                        }
+                    });
+                };
+
+                var magnifVideo = function() {
+                    $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
+                    disableOn: 700,
+                    type: 'iframe',
+                    mainClass: 'mfp-fade',
+                    removalDelay: 160,
+                    preloader: false,
+
+                    fixedContentPos: false
+                });
+                };
+                // Call the functions
+                magnifPopup();
+                magnifVideo();
+            });
+        </script>
+    </head>
+    <body>
+        <!-- Display a message if JS has been disabled on the browser. -->
+        <noscript>If you're seeing this message, that means <strong>JavaScript has been disabled on your browser</strong>, please <strong>enable JS</strong> to make this app work.</noscript>
+
+        <!-- The app hooks into this div -->
+        <div id="app">
+            <div
+                className="welcome-loading-container"
+                style="text-align: center; position: absolute; top: 40%; transform: translateY(-50%); margin: auto; left: 0; right: 0;"
+            >
+                <div style="display: inline-block;">
+                    <div style="font-size: 40px;">Welcome</div>
+                </div>
+                <img class="welcome-loading-tracy"
+                    style="vertical-align: bottom;"
+                    width="180px"
+                    src="./images/tracy.png"
+                    alt=""
+                />
+            </div>
+        </div>
+        <!-- A lot of magic happens in this file. HtmlWebpackPlugin automatically includes all assets (e.g. bundle.js, main.css) with the correct HTML tags, which is why they are missing in this HTML file. Don't add any assets here! (Check out webpackconfig.js if you want to know more) -->
+    </body>
+</html>

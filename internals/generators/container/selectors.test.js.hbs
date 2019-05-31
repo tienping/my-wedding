@@ -1,0 +1,11 @@
+import { fromJS } from 'immutable';
+import makeSelect{{ properCase name }} from '../selectors';
+import { initialState } from '../reducer';
+
+describe('makeSelect{{ properCase name }}', () => {
+    it('Expect makeSelect{{ properCase name }} to return state from reducer', () => {
+        const selector = makeSelect{{ properCase name }}();
+        const mock = fromJS({ {{ properCase name }}: initialState });
+        expect(selector(mock)).toEqual(initialState.toJS());
+    });
+});
