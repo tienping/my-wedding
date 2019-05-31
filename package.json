@@ -1,10 +1,10 @@
 {
-    "name": "aphrodite_temp",
+    "name": "whenimeetu",
     "version": "1.0.0",
-    "description": "A project based on React Boilerplate with some personalisation",
+    "description": "A project based on React Boilerplate for wedding app",
     "repository": {
         "type": "git",
-        "url": "git://bitbucket.org/hermo/aphrodite_temp.git"
+        "url": "git@github.com:tienping/my-wedding.git"
     },
     "engines": {
         "npm": ">=3",
