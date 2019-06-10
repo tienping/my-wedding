@@ -14,4 +14,7 @@ else
 fi
 
 npm run build
+
+# TODO: delete everything in release/ except README.md and CNAME
 # cp -r build/* release/*
+

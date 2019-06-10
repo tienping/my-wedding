@@ -65,7 +65,7 @@ const startingApp = () => {
                                 id="topbar-container"
                                 className=""
                                 style={{
-                                    height: topNavSetting && topNavSetting.length ? '64px' : '35px',
+                                    height: topNavSetting && topNavSetting.length ? '64px' : '34px',
                                 }}
                             >
                                 <Topbar />

@@ -25,6 +25,16 @@ import './style.scss';
 import './css/style.scss';
 
 export class LandingPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+    state = {
+        loaded: false,
+    }
+
+    componentWillMount = () => {
+        this.setState({
+            loaded: true,
+        });
+    }
+
     render = () => (
         <div>
             <Helmet>
@@ -47,6 +57,10 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                 <meta name="twitter:card" content="" />
             </Helmet>
 
+            <div style={{ height: '1px', backgroundColor: 'black' }}>
+
+            </div>
+
             <header
                 role="banner"
                 id="qbootstrap-header"
@@ -58,15 +72,6 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
             >
                 <div
                     className="top-navigation-bar-bg"
-                    style={{
-                        position: 'absolute',
-                        left: 0,
-                        right: 0,
-                        top: 0,
-                        bottom: 0,
-                        backgroundColor: 'black',
-                        opacity: 0.25,
-                    }}
                 />
                 <div className="container">
                     {/* <div className="row"> */}
@@ -74,19 +79,19 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                     <div className="navbar-header">
                         {/* Mobile Toggle Menu Button */}
                         <a href="" className="js-qbootstrap-nav-toggle qbootstrap-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-                        <a className="navbar-brand" href="index.html">Wedding</a>
+                        <a className="navbar-brand" href="index.html">TienPing & ZhiLing</a>
                     </div>
                     <div id="navbar" className="navbar-collapse collapse">
                     <ul className="nav navbar-nav navbar-right">
                         <li className="active"><a href="" data-nav-section="home"><span>Home</span></a></li>
                         <li><a href="" data-nav-section="groom-bride"><span>Groom &amp; Bride</span></a></li>
-                        <li><a href="" data-nav-section="story"><span>Love Story</span></a></li>
-                        <li><a href="" data-nav-section="greetings"><span>Greetings</span></a></li>
-                        <li><a href="" data-nav-section="people"><span>People</span></a></li>
+                        {/* <li><a href="" data-nav-section="story"><span>Love Story</span></a></li> */}
+                        {/* <li><a href="" data-nav-section="greetings"><span>Greetings</span></a></li> */}
+                        {/* <li><a href="" data-nav-section="people"><span>People</span></a></li> */}
                         <li><a href="" data-nav-section="when-where"><span>When &amp; Where</span></a></li>
                         <li><a href="" data-nav-section="rsvp"><span>RSVP</span></a></li>
-                        <li><a href="" data-nav-section="gallery"><span>Gallery</span></a></li>
-                        <li><a href="" data-nav-section="blog"><span>Blog</span></a></li>
+                        {/* <li><a href="" data-nav-section="gallery"><span>Gallery</span></a></li> */}
+                        {/* <li><a href="" data-nav-section="blog"><span>Blog</span></a></li> */}
                     </ul>
                     </div>
                     </nav>
@@ -94,7 +99,7 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
             </div>
             </header>
 
-            <aside id="qbootstrap-slider-hero" data-section="home" style={{ marginTop: '-45px' }}>
+            <aside id="qbootstrap-slider-hero" data-section="home" style={{ marginTop: '-50px' }}>
                 <div className="flexslider">
                     <ul className="slides">
                         <li style={{ backgroundImage: `url(${require('./images/cover_bg_3.jpg')})` }}>
@@ -160,9 +165,8 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                     <div className="row animate-box">
                         <div className="col-md-8 col-md-offset-2 text-center">
                             <div className="col-md-5 col-sm-5 col-xs-5 nopadding">
-                                <img src={require('./images/2.jpg')} className="img-responsive" alt="preview" />
-                                <a href="https://web.facebook.com/PetWesley">https://web.facebook.com/PetWesley</a>
-                                <h3>Lim Tien Ping</h3>
+                                <img src={require('./images/man.jpg')} className="img-responsive" alt="preview" />
+                                <a href="https://web.facebook.com/PetWesley"><h3>Lim Tien Ping</h3></a>
                                 <span>Groom</span>
                             </div>
                             <div className="col-md-2 col-sm-2 col-xs-2 nopadding">
@@ -171,8 +175,8 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                                 </h2>
                             </div>
                             <div className="col-md-5 col-sm-5 col-xs-5 nopadding">
-                                <img src={require('./images/3.jpg')} className="img-responsive" alt="preview" />
-                                <h3>Ngu Zhi Ling</h3>
+                                <img src={require('./images/woman.jpg')} className="img-responsive" alt="preview" />
+                                <a href="https://www.facebook.com/2LiNg.U"><h3>Ngu Zhi Ling</h3></a>
                                 <span>Bride</span>
                             </div>
                         </div>
@@ -180,7 +184,12 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                 </div>
             </div>
 
-            <div id="qbootstrap-countdown" data-stellar-background-ratio="0.5" style={{ backgroundImage: `url(${require('./images/cover_bg_2.jpg')})` }} data-section="wedding-day">
+            <div
+                id="qbootstrap-countdown"
+                data-stellar-background-ratio="0.5"
+                style={{ backgroundImage: `url(${require('./images/cover_bg_2.jpg')})` }}
+                data-section="wedding-day"
+            >
                 <div className="overlay"></div>
                 <div className="display-over">
                     <div className="container">
@@ -210,13 +219,13 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                     <div className="row animate-box">
                         <div className="col-md-8 col-md-offset-2">
                             <div className="col-md-12 text-center section-heading svg-sm-2 colored">
-                                <img src={require('./images/1.jpg')} className="svg" alt="preview" />
+                                <img src={require('./images/couple.jpg')} className="svg" alt="preview" />
                                 <h2>Groom &amp; Bride</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam accusamus, sequi, minima repellendus explicabo magni aperiam, ducimus perferendis ad quidem suscipit omnis unde veritatis pariatur. Commodi, nisi. Iusto, accusantium a.</p>
+                                <p>Come and celebrate with us.</p>
                             </div>
                         </div>
                     </div>
-                    <div className="row">
+                    {/* <div className="row">
                         <div className="col-md-6">
                             <div className="couple groom text-center animate-box">
                                 <img src={require('./images/groom.jpg')} className="img-responsive" alt="preview" />
@@ -224,9 +233,9 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                                     <h2>Louie Jie L. Mahusay</h2>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda vero totam eum, necessitatibus reprehenderit nisi, ratione neque aspernatur sapiente minus? Omnis neque labore distinctio aspernatur esse impedit laboriosam, veritatis dolorem!</p>
                                     <ul className="social social-circle">
-                                        <li><a href=""><i className="icon-twitter"></i></a></li>
-                                        <li><a href=""><i className="icon-facebook"></i></a></li>
-                                        <li><a href=""><i className="icon-instagram"></i></a></li>
+                                        <li><a href=""><i className="fab fa-twitter"></i></a></li>
+                                        <li><a href=""><i className="fab fa-facebook"></i></a></li>
+                                        <li><a href=""><i className="fab fa-instagram"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -238,208 +247,14 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                                     <h2>Marializa R. Tabay</h2>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda vero totam eum, necessitatibus reprehenderit nisi, ratione neque aspernatur sapiente minus? Omnis neque labore distinctio aspernatur esse impedit laboriosam, veritatis dolorem!</p>
                                     <ul className="social social-circle">
-                                        <li><a href=""><i className="icon-twitter"></i></a></li>
-                                        <li><a href=""><i className="icon-facebook"></i></a></li>
-                                        <li><a href=""><i className="icon-instagram"></i></a></li>
+                                        <li><a href=""><i className="fab fa-twitter"></i></a></li>
+                                        <li><a href=""><i className="fab fa-facebook"></i></a></li>
+                                        <li><a href=""><i className="fab fa-instagram"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="qbootstrap-story" data-section="story">
-                <div className="container">
-                    <div className="row animate-box">
-                        <div className="col-md-8 col-md-offset-2">
-                            <div className="col-md-12 text-center section-heading svg-sm-2">
-                                <img src={require('./images/flaticon/svg/003-luxury.svg')} className="svg" alt="preview" />
-                                <h2>Our Love Story</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-12">
-                            <ul className="timeline animate-box">
-                                <li className="animate-box">
-                                    <div className="timeline-badge" style={{ backgroundImage: `url(${require('./images/couple-1.jpg')})` }}></div>
-                                    <div className="timeline-panel">
-                                        <div className="overlay"></div>
-                                        <div className="timeline-heading">
-                                            <h3 className="timeline-title">First We Meet</h3>
-                                            <span className="date">June 10, 2017</span>
-                                        </div>
-                                        <div className="timeline-body">
-                                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in .</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="timeline-inverted animate-box">
-                                    <div className="timeline-badge" style={{ backgroundImage: `url(${require('./images/couple-2.jpg')})` }}></div>
-                                    <div className="timeline-panel">
-                                        <div className="overlay overlay-2"></div>
-                                        <div className="timeline-heading">
-                                            <h3 className="timeline-title">First Date</h3>
-                                            <span className="date">June 10, 2017</span>
-                                        </div>
-                                        <div className="timeline-body">
-                                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in .</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="animate-box">
-                                    <div className="timeline-badge" style={{ backgroundImage: `url(${require('./images/couple-3.jpg')})` }}></div>
-                                    <div className="timeline-panel">
-                                        <div className="overlay"></div>
-                                        <div className="timeline-heading">
-                                            <h3 className="timeline-title">In A Relationship</h3>
-                                            <span className="date">June 14, 2017</span>
-                                        </div>
-                                        <div className="timeline-body">
-                                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in .</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="timeline-inverted animate-box">
-                                    <div className="timeline-badge" style={{ backgroundImage: `url(${require('./images/couple-4.jpg')})` }}></div>
-                                    <div className="timeline-panel">
-                                        <div className="overlay overlay-2"></div>
-                                        <div className="timeline-heading">
-                                            <h3 className="timeline-title">We&#39;re Engaged</h3>
-                                            <span className="date">Sept. 01, 2017</span>
-                                        </div>
-                                        <div className="timeline-body">
-                                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in.</p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="qbootstrap-testimonials" className="qbootstrap-greetings" data-section="greetings" data-stellar-background-ratio="0.5" style={{ backgroundImage: `url(${require('./images/cover_bg_1.jpg')})` }}>
-            <div className="overlay"></div>
-                <div className="container">
-                    <div className="row animate-box">
-                        <div className="col-md-12 section-heading text-center svg-sm colored">
-                            <img src={require('./images/flaticon/svg/006-flower-bell-outline-design-variant-with-vines-and-leaves.svg')} className="svg" alt="preview" />
-                            <h2 className="">Sweet Messages</h2>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-4 animate-box">
-                            <div className="box-testimony ">
-                                <blockquote>
-                                    <span className="quote"><span><i className="icon-quote-left"></i></span></span>
-                                    <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
-                                </blockquote>
-                                <p className="author">John Doe</p>
-                            </div>
-
-                        </div>
-                        <div className="col-md-4 animate-box">
-                            <div className="box-testimony ">
-                                <blockquote>
-                                    <span className="quote"><span><i className="icon-quote-left"></i></span></span>
-                                    <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.&rdquo;</p>
-                                </blockquote>
-                                <p className="author">John Doe</p>
-                            </div>
-
-
-                        </div>
-                        <div className="col-md-4 animate-box">
-                            <div className="box-testimony ">
-                                <blockquote>
-                                    <span className="quote"><span><i className="icon-quote-left"></i></span></span>
-                                    <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
-                                </blockquote>
-                                <p className="author">John Doe</p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="qbootstrap-people" data-section="people">
-                <div className="container">
-                    <div className="row animate-box">
-                        <div className="col-md-8 col-md-offset-2">
-                            <div className="col-md-12 text-center section-heading svg-sm colored">
-                                <img src={require('./images/flaticon/svg/005-two.svg')} className="svg" alt="preview" />
-                                <h2>The Groomsmen</h2>
-                                <div className="row">
-                                <div className="col-md-10 col-md-offset-1 subtext  ">
-                                    <h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row row-bottom-padded-lg">
-                        <div className="col-md-3 text-center animate-box">
-                            <div className="groom-men">
-                                <img src={require('./images/groom-men-1.jpg')} className="img-responsive" alt="preview" />
-                                <h3>Ian Bill</h3>
-                            </div>
-                        </div>
-                        <div className="col-md-3 text-center animate-box">
-                            <div className="groom-men">
-                                <img src={require('./images/groom-men-2.jpg')} className="img-responsive" alt="preview" />
-                                <h3>George Smith</h3>
-                            </div>
-                        </div>
-                        <div className="col-md-3 text-center animate-box">
-                            <div className="groom-men">
-                                <img src={require('./images/groom-men-3.jpg')} className="img-responsive" alt="preview" />
-                                <h3>Brian Thompson</h3>
-                            </div>
-                        </div>
-                        <div className="col-md-3 text-center animate-box">
-                            <div className="groom-men">
-                                <img src={require('./images/groom-men-4.jpg')} className="img-responsive" alt="preview" />
-                                <h3>David Howard</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row animate-box">
-                        <div className="col-md-8 col-md-offset-2">
-                            <div className="col-md-12 text-center section-heading svg-sm colored">
-                                <img src={require('./images/flaticon/svg/005-two.svg')} className="svg" alt="preview" />
-                                <h2>The Bridesmaid</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-3 text-center animate-box">
-                            <div className="groom-men">
-                                <img src={require('./images/bridesmaid-1.jpg')} className="img-responsive" alt="preview" />
-                                <h3>Angel Thomas</h3>
-                            </div>
-                        </div>
-                        <div className="col-md-3 text-center animate-box">
-                            <div className="groom-men">
-                                <img src={require('./images/bridesmaid-2.jpg')} className="img-responsive" alt="preview" />
-                                <h3>Kathy Shol</h3>
-                            </div>
-                        </div>
-                        <div className="col-md-3 text-center animate-box">
-                            <div className="groom-men">
-                                <img src={require('./images/bridesmaid-3.jpg')} className="img-responsive" alt="preview" />
-                                <h3>Rose Mel</h3>
-                            </div>
-                        </div>
-                        <div className="col-md-3 text-center animate-box">
-                            <div className="groom-men">
-                                <img src={require('./images/bridesmaid-4.jpg')} className="img-responsive" alt="preview" />
-                                <h3>Ann Hathway</h3>
-                            </div>
-                        </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
 
@@ -452,7 +267,7 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                                 <h2>Ceremony &amp; Party</h2>
                                 <div className="row">
                                 <div className="col-md-10 col-md-offset-1 subtext">
-                                    <h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>
+                                    <h3>We will have a wedding ceremony in the morning and the wedding dinner will start after the sun set.</h3>
                                 </div>
                             </div>
                             </div>
@@ -461,63 +276,63 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                     <div className="row row-bottom-padded-md">
                         <div className="col-md-6 text-center animate-box">
                             <div className="wedding-events">
-                                <div className="ceremony-bg" style={{ backgroundImage: `url(${require('./images/wed-ceremony.jpg')})` }}></div>
+                                <div className="ceremony-bg" style={{ backgroundImage: `url(${require('./images/wedding_ceremony.jpg')})` }}></div>
                                 <div className="desc">
                                     <h3>Wedding Ceremony</h3>
                                     <div className="row">
                                         <div className="col-md-2 col-md-push-5">
                                             <div className="icon-tip">
-                                                <span className="icon"><i className="icon-heart-o"></i></span>
+                                                <span className="icon"><i className="far fa-heart"></i></span>
                                             </div>
                                         </div>
                                         <div className="col-md-5 col-md-pull-1">
                                             <div className="date">
-                                                <i className="icon-calendar"></i>
+                                                <i className="fa fa-calendar" aria-hidden="true"></i>
                                                 <span>Saturday</span>
-                                                <span>02 Dec. 2017</span>
+                                                <span>26 Oct. 2019</span>
                                             </div>
                                         </div>
                                         <div className="col-md-5 col-md-pull-1">
                                             <div className="date">
-                                                <i className="icon-clock2"></i>
-                                                <span>10:00 AM</span>
-                                                <span>11:00 AM</span>
+                                                <i className="far fa-clock"></i>
+                                                <span>09:30 AM</span>
+                                                <span>11:30 AM</span>
                                             </div>
                                         </div>
                                     </div>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                                    <p><a href="" className="btn btn-primary btn-sm">Learn more</a></p>
+                                    <p>Sing Ang Tong Methodist Church, Sibu</p>
+                                    <p><a href="https://goo.gl/maps/njGQJk2QkTx1WnKF8" className="btn btn-primary btn-sm">Google Map</a></p>
                                 </div>
                             </div>
                         </div>
                         <div className="col-md-6 text-center animate-box">
                             <div className="wedding-events">
-                                <div className="ceremony-bg" style={{ backgroundImage: `url(${require('./images/wed-party.jpg')})` }}></div>
+                                <div className="ceremony-bg" style={{ backgroundImage: `url(${require('./images/wedding_dinner.jpg')})` }}></div>
                                 <div className="desc">
                                     <h3>Wedding Party</h3>
                                     <div className="row">
                                         <div className="col-md-2 col-md-push-5">
                                             <div className="icon-tip">
-                                                <span className="icon"><i className="icon-heart-o"></i></span>
+                                                <span className="icon"><i className="far fa-heart"></i></span>
                                             </div>
                                         </div>
                                         <div className="col-md-5 col-md-pull-1">
                                             <div className="date">
-                                                <i className="icon-calendar"></i>
+                                                <i className="fa fa-calendar"></i>
                                                 <span>Saturday</span>
-                                                <span>02 Dec. 2017</span>
+                                                <span>26 Oct. 2019</span>
                                             </div>
                                         </div>
                                         <div className="col-md-5 col-md-pull-1">
                                             <div className="date">
-                                                <i className="icon-clock2"></i>
-                                                <span>10:00 AM</span>
-                                                <span>11:00 AM</span>
+                                                <i className="far fa-clock"></i>
+                                                <span>07:00 PM</span>
+                                                <span>11:00 PM</span>
                                             </div>
                                         </div>
                                     </div>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                                    <p><a href="" className="btn btn-primary btn-sm">Learn more</a></p>
+                                    <p>The Paramount Hotel, Sibu</p>
+                                    <p><a href="https://goo.gl/maps/CyCYwaHbhZiRkzcm7" className="btn btn-primary btn-sm">Google Map</a></p>
                                 </div>
                             </div>
                         </div>
@@ -529,194 +344,32 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                     </div>
                 </div>
             </div>
-            <div id="qbootstrap-started" className="qbootstrap-bg" data-section="rsvp" data-stellar-background-ratio="0.5" style={{ backgroundImage: `url(${require('./images/cover_bg_1.jpg')})` }}>
-                <div className="overlay"></div>
-                <div className="container">
-                    <div className="row animate-box">
-                        <div className="col-md-8 col-md-offset-2">
-                            <div className="col-md-12 text-center section-heading svg-sm colored">
-                                <img src={require('./images/flaticon/svg/005-two.svg')} className="svg" alt="preview" />
-                                <h2>You Are Invited</h2>
-                                <div className="row">
-                                <div className="col-md-10 col-md-offset-1 subtext">
-                                    <h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row animate-box">
-                        <div className="col-md-10 col-md-offset-1">
-                            <form className="form-inline">
-                                <div className="col-md-4 col-sm-4">
-                                    <div className="form-group">
-                                        <label htmlFor="name" className="sr-only">Name</label>
-                                        <input type="name" className="form-control" id="name" placeholder="Name" />
-                                    </div>
-                                </div>
-                                <div className="col-md-4 col-sm-4">
-                                    <div className="form-group">
-                                        <label htmlFor="email" className="sr-only">Email</label>
-                                        <input type="email" className="form-control" id="email" placeholder="Email" />
-                                    </div>
-                                </div>
-                                <div className="col-md-4 col-sm-4">
-                                    <button type="submit" className="btn btn-default btn-block">I am Attending</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="qbootstrap-gallery" data-section="gallery">
-                <div className="container">
-                    <div className="row animate-box">
-                        <div className="col-md-8 col-md-offset-2">
-                            <div className="col-md-12 text-center section-heading svg-sm colored">
-                                <img src={require('./images/flaticon/svg/005-two.svg')} className="svg" alt="preview" />
-                                <h2>Our Selfie Photos</h2>
-                                <div className="row">
-                                <div className="col-md-10 col-md-offset-1 subtext">
-                                    <h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-md-3 col-sm-6">
-                            <div className="gallery animate-box">
-                                <a className="gallery-img image-popup image-popup" href="images/gallery-1.jpg"><img src={require('./images/gallery-1.jpg')} className="img-responsive" alt="preview" /></a>
-                            </div>
-                            <div className="gallery animate-box">
-                                <a className="gallery-img image-popup" href="images/gallery-10.jpg"><img src={require('./images/gallery-10.jpg')} className="img-responsive" alt="preview" /></a>
-                            </div>
-                        </div>
-                        <div className="col-md-3 col-sm-6">
-                            <div className="gallery animate-box">
-                                <a className="gallery-img image-popup" href="images/gallery-6.jpg"><img src={require('./images/gallery-6.jpg')} className="img-responsive" alt="preview" /></a>
-                            </div>
-                            <div className="gallery animate-box">
-                                <a className="gallery-img image-popup" href="images/gallery-2.jpg"><img src={require('./images/gallery-2.jpg')} className="img-responsive" alt="preview" /></a>
-                            </div>
-                            <div className="gallery animate-box">
-                                <a className="gallery-img image-popup" href="images/gallery-5.jpg"><img src={require('./images/gallery-5.jpg')} className="img-responsive" alt="preview" /></a>
-                            </div>
-                        </div>
-                        <div className="col-md-3 col-sm-6">
-                            <div className="gallery animate-box">
-                                <a className="gallery-img image-popup" href="images/gallery-7.jpg"><img src={require('./images/gallery-7.jpg')} className="img-responsive" alt="preview" /></a>
-                            </div>
-                            <div className="gallery animate-box">
-                                <a className="gallery-img image-popup" href="images/gallery-3.jpg"><img src={require('./images/gallery-3.jpg')} className="img-responsive" alt="preview" /></a>
-                            </div>
-                            <div className="gallery animate-box">
-                                <a className="gallery-img image-popup" href="images/gallery-4.jpg"><img src={require('./images/gallery-4.jpg')} className="img-responsive" alt="preview" /></a>
-                            </div>
-                        </div>
-                        <div className="col-md-3 col-sm-6">
-                            <div className="gallery animate-box">
-                                <a className="gallery-img image-popup" href="images/gallery-8.jpg"><img src={require('./images/gallery-8.jpg')} className="img-responsive" alt="preview" /></a>
-                            </div>
-                            <div className="gallery animate-box">
-                                <a className="gallery-img image-popup" href="images/gallery-9.jpg"><img src={require('./images/gallery-9.jpg')} className="img-responsive" alt="preview" /></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="qbootstrap-press" data-section="blog">
-                <div className="container">
-                    <div className="row animate-box">
-                        <div className="col-md-8 col-md-offset-2">
-                            <div className="col-md-12 text-center section-heading svg-sm colored">
-                                <img src={require('./images/flaticon/svg/005-two.svg')} className="svg" alt="preview" />
-                                <h2>Our Blog</h2>
-                                <div className="row">
-                                <div className="col-md-10 col-md-offset-1 subtext">
-                                    <h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-6">
-                            <div className="qbootstrap-press-item animate-box">
-                                <div className="qbootstrap-press-img" style={{ backgroundImage: `url(${require('./images/blog-1.jpg')})` }}>
-                                </div>
-                                <div className="qbootstrap-press-text">
-                                    <h3 className="h2 qbootstrap-press-title">The Wedding Party <span className="qbootstrap-border"></span></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis eius quos similique suscipit dolorem cumque vitae qui molestias illo accusantium...</p>
-                                    <p><a href="" className="btn btn-primary btn-sm">Learn more</a></p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col-md-6">
-                            <div className="qbootstrap-press-item animate-box">
-                                <div className="qbootstrap-press-img" style={{ backgroundImage: `url(${require('./images/blog-2.jpg')})` }}>
-                                </div>
-                                <div className="qbootstrap-press-text">
-                                    <h3 className="h2 qbootstrap-press-title">Wedding Party <span className="qbootstrap-border"></span></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis eius quos similique suscipit dolorem cumque vitae qui molestias illo accusantium...</p>
-                                    <p><a href="" className="btn btn-primary btn-sm">Learn more</a></p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col-md-6">
-                            <div className="qbootstrap-press-item animate-box">
-                                <div className="qbootstrap-press-img" style={{ backgroundImage: `url(${require('./images/blog-3.jpg')})` }}>
-                                </div>
-                                <div className="qbootstrap-press-text">
-                                    <h3 className="h2 qbootstrap-press-title">Venue Wedding <span className="qbootstrap-border"></span></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis eius quos similique suscipit dolorem cumque vitae qui molestias illo accusantium...</p>
-                                    <p><a href="" className="btn btn-primary btn-sm">Learn more</a></p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col-md-6">
-                            <div className="qbootstrap-press-item animate-box">
-                                <div className="qbootstrap-press-img" style={{ backgroundImage: `url(${require('./images/blog-4.jpg')})` }}>
-                                </div>
-                                <div className="qbootstrap-press-text">
-                                    <h3 className="h2 qbootstrap-press-title">About The Couple <span className="qbootstrap-border"></span></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis eius quos similique suscipit dolorem cumque vitae qui molestias illo accusantium...</p>
-                                    <p><a href="" className="btn btn-primary btn-sm">Learn more</a></p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
 
             <footer id="footer" role="contentinfo">
                 <div className="container">
                     <div className="row row-bottom-padded-sm">
                         <div className="col-md-12">
-                            <p className="copyright text-center">&copy; 2017 <a href="index.html">Wedding</a>. All Rights Reserved. Images by <a href="http://unsplash.com/" target="_blank">Unsplash</a></p>
+                            <p className="copyright text-center">&copy; 2019 <a href="index.html">WhenImeetU</a>. All Rights Reserved.</p>
                         </div>
                     </div>
-                    <div className="row">
+                    {/* <div className="row">
                         <div className="col-md-12 text-center">
                             <ul className="social social-circle">
-                                <li><a href=""><i className="icon-twitter"></i></a></li>
-                                <li><a href=""><i className="icon-facebook"></i></a></li>
-                                <li><a href=""><i className="icon-youtube"></i></a></li>
-                                <li><a href=""><i className="icon-instagram"></i></a></li>
+                                <li><a href=""><i className="fab fa-twitter"></i></a></li>
+                                <li><a href=""><i className="fab fa-facebook"></i></a></li>
+                                <li><a href=""><i className="fab fa-youtube"></i></a></li>
+                                <li><a href=""><i className="fab fa-instagram"></i></a></li>
                             </ul>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </footer>
-            <script src={require('./js/main')}></script>
+            {
+                this.state.loaded ?
+                    <script src={require('./js/main')}></script>
+                    :
+                    null
+            }
         </div>
     );
 }

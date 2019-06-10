@@ -15,7 +15,7 @@ body {
   font-family: "Source Sans Pro", Arial, sans-serif;
   font-weight: 400;
   font-size: 18px;
-  line-height: 1.8;
+  line-height: 1.5;
   color: #777777;
   color: #7f7f7f;
   background: #fff;
@@ -35,7 +35,7 @@ a:hover, a:active, a:focus {
 }
 
 p {
-  margin-bottom: 1.5em;
+  margin-bottom: 1.5rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -236,9 +236,10 @@ h1, h2, h3, h4, h5, h6 {
   clear: both;
 }
 .section-heading.svg-sm-2 .svg {
-  height: 150px;
+  width: 250px;
   margin-bottom: 0;
   padding: 0;
+  border-radius: 20%;
 }
 .section-heading.svg-sm .svg {
   height: 180px;
@@ -463,6 +464,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0;
 }
 #qbootstrap-slider-hero .flexslider .slides {
+  width: 100%;
   position: relative;
   overflow: hidden;
 }
