@@ -332,7 +332,7 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                 </div>
             </div>
 
-            <div id="qbootstrap-started" className="qbootstrap-bg" data-section="rsvp" data-stellar-background-ratio="0.5" style={{ backgroundImage: `url(${require('./images/cover_bg_1.jpg')})` }}>
+            {/* <div id="qbootstrap-started" className="qbootstrap-bg" data-section="rsvp" data-stellar-background-ratio="0.5" style={{ backgroundImage: `url(${require('./images/cover_bg_1.jpg')})` }}>
                 <div className="overlay"></div>
                 <div className="container">
                     <div className="row animate-box">
@@ -370,7 +370,7 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             <div id="qbootstrap-gallery" data-section="gallery">
                 <div className="container">
