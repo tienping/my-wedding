@@ -57,9 +57,7 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                 <meta name="twitter:card" content="" />
             </Helmet>
 
-            <div style={{ height: '1px', backgroundColor: 'black' }}>
-
-            </div>
+            <div style={{ height: '1px', backgroundColor: 'black' }} />
 
             <header
                 role="banner"
@@ -70,33 +68,31 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                     marginTop: topNavSetting && topNavSetting.length ? '-64px' : '-35px',
                 }}
             >
-                <div
-                    className="top-navigation-bar-bg"
-                />
+                <div className="top-navigation-bar-bg" />
                 <div className="container">
                     {/* <div className="row"> */}
                     <nav className="navbar navbar-default">
-                    <div className="navbar-header">
-                        {/* Mobile Toggle Menu Button */}
-                        <a href="" className="js-qbootstrap-nav-toggle qbootstrap-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-                        <a className="navbar-brand" href="index.html">TienPing & ZhiLing</a>
-                    </div>
-                    <div id="navbar" className="navbar-collapse collapse">
-                    <ul className="nav navbar-nav navbar-right">
-                        <li className="active"><a href="" data-nav-section="home"><span>Home</span></a></li>
-                        <li><a href="" data-nav-section="groom-bride"><span>Groom &amp; Bride</span></a></li>
-                        {/* <li><a href="" data-nav-section="story"><span>Love Story</span></a></li> */}
-                        {/* <li><a href="" data-nav-section="greetings"><span>Greetings</span></a></li> */}
-                        {/* <li><a href="" data-nav-section="people"><span>People</span></a></li> */}
-                        <li><a href="" data-nav-section="when-where"><span>When &amp; Where</span></a></li>
-                        <li><a href="" data-nav-section="rsvp"><span>RSVP</span></a></li>
-                        {/* <li><a href="" data-nav-section="gallery"><span>Gallery</span></a></li> */}
-                        {/* <li><a href="" data-nav-section="blog"><span>Blog</span></a></li> */}
-                    </ul>
-                    </div>
+                        <div className="navbar-header">
+                            {/* Mobile Toggle Menu Button */}
+                            <a href="" className="js-qbootstrap-nav-toggle qbootstrap-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
+                            <a className="navbar-brand" href="/">TienPing & ZhiLing</a>
+                        </div>
+                        <div id="navbar" className="navbar-collapse collapse">
+                            <ul className="nav navbar-nav navbar-right">
+                                <li className="active"><a href="" data-nav-section="home"><span>Home</span></a></li>
+                                <li><a href="" data-nav-section="groom-bride"><span>Groom &amp; Bride</span></a></li>
+                                {/* <li><a href="" data-nav-section="story"><span>Love Story</span></a></li> */}
+                                {/* <li><a href="" data-nav-section="greetings"><span>Greetings</span></a></li> */}
+                                {/* <li><a href="" data-nav-section="people"><span>People</span></a></li> */}
+                                <li><a href="" data-nav-section="when-where"><span>When &amp; Where</span></a></li>
+                                <li><a href="" data-nav-section="rsvp"><span>RSVP</span></a></li>
+                                {/* <li><a href="" data-nav-section="gallery"><span>Gallery</span></a></li> */}
+                                {/* <li><a href="" data-nav-section="blog"><span>Blog</span></a></li> */}
+                            </ul>
+                        </div>
                     </nav>
-                {/* </div> */}
-            </div>
+                    {/* </div> */}
+                </div>
             </header>
 
             <aside id="qbootstrap-slider-hero" data-section="home" style={{ marginTop: '-50px' }}>
@@ -108,10 +104,14 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                                 <div className="row">
                                     <div className="col-md-8 col-md-offset-2 text-center slider-text">
                                         <div className="slider-text-inner">
-                                            <h1 className="holder"><span>The Wedding of</span></h1>
-                                            <h1>Tien Ping &amp; Zhi Ling</h1>
-                                                <h2>Welcome to our wedding website! Thank you so much for visiting! This is the place you&#39;ll find every piece of information you will need regarding our wedding celebration.</h2>
-                                                <p className="date"><span>26.10.2019</span></p>
+                                            <h2>
+                                                <div className="holder">
+                                                    <span>The Wedding of</span>
+                                                </div>
+                                                <div>Tien Ping &amp; Zhi Ling</div>
+                                            </h2>
+                                            <h3>Welcome to our wedding website! Thank you so much for visiting! This is the place you&#39;ll find every piece of information you will need regarding our wedding celebration.</h3>
+                                            <p className="date"><span>26.10.2019</span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -123,10 +123,14 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                                 <div className="row">
                                     <div className="col-md-8 col-md-offset-2 text-center slider-text">
                                         <div className="slider-text-inner">
-                                            <h1 className="holder"><span>Welcome to</span></h1>
-                                            <h1>Our Wedding</h1>
-                                                <h2>Welcome to our wedding website! Thank you so much for visiting! This is the place you&#39;ll find every piece of information you will need regarding our wedding celebration.</h2>
-                                                <p className="date"><span>26.10.2019</span></p>
+                                            <h2>
+                                                <div className="holder">
+                                                    <span>Welcome to</span>
+                                                </div>
+                                                <div>Our Wedding</div>
+                                            </h2>
+                                            <h3>Welcome to our wedding website! Thank you so much for visiting! This is the place you&#39;ll find every piece of information you will need regarding our wedding celebration.</h3>
+                                            <p className="date"><span>26.10.2019</span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -138,9 +142,9 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                                 <div className="row">
                                     <div className="col-md-8 col-md-offset-2 text-center slider-text">
                                         <div className="slider-text-inner">
-                                            <h1>I Have The Most Romantic Man</h1>
-                                                <h2>Welcome to our wedding website! Thank you so much for visiting! This is the place you&#39;ll find every piece of information you will need regarding our wedding celebration.</h2>
-                                                <p className="date"><span>26.10.2019</span></p>
+                                            <h2>I Have The Most Romantic Man</h2>
+                                            <h3>Welcome to our wedding website! Thank you so much for visiting! This is the place you&#39;ll find every piece of information you will need regarding our wedding celebration.</h3>
+                                            <p className="date"><span>26.10.2019</span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -266,10 +270,10 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                                 <img src={require('./images/flaticon/svg/005-two.svg')} className="svg" alt="preview" />
                                 <h2>Ceremony &amp; Party</h2>
                                 <div className="row">
-                                <div className="col-md-10 col-md-offset-1 subtext">
-                                    <h3>We will have a wedding ceremony in the morning and the wedding dinner will start after the sun set.</h3>
+                                    <div className="col-md-10 col-md-offset-1 subtext">
+                                        <h3>We will have a wedding ceremony in the morning and the wedding dinner will start after the sun set.</h3>
+                                    </div>
                                 </div>
-                            </div>
                             </div>
                         </div>
                     </div>
