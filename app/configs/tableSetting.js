@@ -136,11 +136,14 @@ const tableSetting = {
                         onPressHandling: (index, scope, data) => {
                         // onPressHandling: (index, scope, data, GDPActions) => {
                             if (data && data.id && data.merchant_id) {
-                                Feather.associate({
-                                    model: 'product',
+                                Feather.action({
+                                    dataSet: 'product',
+                                    service: 'product',
                                     modelId: parseInt(data.id, 10),
-                                    associateModel: 'merchant',
-                                    associateId: 1,
+                                    query: {
+                                        type: 'SET_MERCHANT',
+                                        id: 1,
+                                    },
                                     socket: 'aphrodite',
                                     successCallback: () => {
                                         scope.getFeatherQuery();

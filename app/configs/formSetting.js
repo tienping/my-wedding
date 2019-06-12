@@ -59,11 +59,14 @@ const formSetting = {
         ],
         onSubmit: (scope, GDPActions, data, formFields, tableScope) => {
             if (dataChecking(data, 'product', 'value')) {
-                Feather.associate({
-                    model: 'product',
+                Feather.action({
+                    dataSet: 'product',
+                    service: 'product',
                     modelId: parseInt(data.product.value, 10),
-                    associateModel: 'merchant',
-                    associateId: parseInt(data.routeParams.id, 10),
+                    query: {
+                        type: 'SET_MERCHANT',
+                        id: parseInt(data.routeParams.id, 10),
+                    },
                     socket: 'aphrodite',
                     successCallback: () => {
                         tableScope.getFeatherQuery();
