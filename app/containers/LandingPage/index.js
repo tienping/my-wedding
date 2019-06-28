@@ -127,7 +127,7 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                                                 <div className="holder">
                                                     <span>Welcome to</span>
                                                 </div>
-                                                <div>Our Wedding</div>
+                                                <div>TP & ZL Wedding</div>
                                             </h2>
                                             <h3>Welcome to our wedding website! Thank you so much for visiting! This is the place you&#39;ll find every piece of information you will need regarding our wedding celebration.</h3>
                                             <p className="date"><span>26.10.2019</span></p>
