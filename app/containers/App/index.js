@@ -16,6 +16,11 @@ import LogoutForm from 'containers/LogoutForm';
 import LoginForm from 'containers/LoginForm';
 // import NotFoundPage from 'containers/NotFoundPage';
 import GlobalDataProcessor from 'containers/GlobalDataProcessor';
+import WishesPage from 'containers/WishesPage';
+import AllWishesPage from 'containers/AllWishesPage';
+import GalleryPage from 'containers/GalleryPage';
+import DashboardPage from 'containers/DashboardPage';
+import SecretTunnel from 'components/SecretTunnel';
 
 import globalScope from 'globalScope';
 
@@ -27,26 +32,62 @@ export default function App() {
             key: 'login',
             exact: true,
             path: '/login',
-            requireAuth: false,
             component: globalScope.token ? LogoutForm : LoginForm,
         },
         {
-            key: 'login',
+            key: 'logout',
             exact: true,
             path: '/logout',
             component: LogoutForm,
+        },
+        {
+            key: 'secret_cxy',
+            exact: true,
+            path: '/secret_tunnel_cxy92',
+            component: SecretTunnel,
         },
         // {
         //     key: 'any key',
         //     exact: 'boolean',
         //     path: 'path_to',
+        //     requireAuth: true,
         //     component: 'imported_reeact_component',
         //     render: (props) => <TableListingPage {...props} pageType={'type'} />,
         // },
     ];
 
-    // const pageNotFound = NotFoundPage;
-    const pageNotFound = LandingPage;
+    if (globalScope.activated) {
+        pathArray.push(...[
+            {
+                key: 'wishes',
+                exact: true,
+                path: '/wishes',
+                component: WishesPage,
+            },
+            {
+                key: 'wishes_all',
+                exact: true,
+                path: '/wishes/all',
+                component: AllWishesPage,
+            },
+            {
+                key: 'gallery',
+                exact: true,
+                path: '/galler',
+                component: GalleryPage,
+            },
+            {
+                key: 'dashboard',
+                exact: true,
+                path: '/dashboard',
+                requireAuth: true,
+                component: DashboardPage,
+            },
+        ]);
+    }
+
+    const pageNotFound = LandingPage; // = NotFoundPage;
+
     return (
         <div>
             <Helmet

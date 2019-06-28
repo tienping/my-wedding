@@ -37,7 +37,7 @@ export class LogoutForm extends React.PureComponent { // eslint-disable-line rea
                     <div className="logoutForm-wrapper">
                         <div className="logoutForm-div">
                             <div>
-                                <h4><span><FormattedMessage {...messages.formTitle} /></span></h4>
+                                <h2><span><FormattedMessage {...messages.formTitle} /></span></h2>
                             </div>
                             <div className="actions">
                                 <span
