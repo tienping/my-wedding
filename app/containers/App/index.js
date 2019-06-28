@@ -14,15 +14,39 @@ import Notify from 'containers/Notify';
 import LandingPage from 'containers/LandingPage';
 import LogoutForm from 'containers/LogoutForm';
 import LoginForm from 'containers/LoginForm';
-import NotFoundPage from 'containers/NotFoundPage';
+// import NotFoundPage from 'containers/NotFoundPage';
 import GlobalDataProcessor from 'containers/GlobalDataProcessor';
 
-import { dataChecking } from 'globalUtils';
 import globalScope from 'globalScope';
 
 import PrivateRoute from './PrivateRoute';
 
 export default function App() {
+    const pathArray = [
+        {
+            key: 'login',
+            exact: true,
+            path: '/login',
+            requireAuth: false,
+            component: globalScope.token ? LogoutForm : LoginForm,
+        },
+        {
+            key: 'login',
+            exact: true,
+            path: '/logout',
+            component: LogoutForm,
+        },
+        // {
+        //     key: 'any key',
+        //     exact: 'boolean',
+        //     path: 'path_to',
+        //     component: 'imported_reeact_component',
+        //     render: (props) => <TableListingPage {...props} pageType={'type'} />,
+        // },
+    ];
+
+    // const pageNotFound = NotFoundPage;
+    const pageNotFound = LandingPage;
     return (
         <div>
             <Helmet
@@ -39,13 +63,34 @@ export default function App() {
                     id="content-container"
                 >
                     <Switch>
+                        {
+                            pathArray.map((item, index) => {
+                                if (item.requireAuth) {
+                                    return (
+                                        <PrivateRoute
+                                            key={index}
+                                            exact={item.exact}
+                                            path={item.path}
+                                            component={item.component}
+                                            render={item.render || null}
+                                            token={globalScope.token || ''}
+                                        />
+                                    );
+                                }
+
+                                return (
+                                    <Route
+                                        key={index}
+                                        exact={item.exact}
+                                        path={item.path}
+                                        component={item.component}
+                                        render={item.render || null}
+                                    />
+                                );
+                            })
+                        }
                         <Route exact={true} path="/login" component={globalScope.token ? LogoutForm : LoginForm} />
                         <Route exact={true} path="/logout" component={LogoutForm} />
-                        <Route
-                            exact={true}
-                            path="/"
-                            render={() => <LandingPage />}
-                        />
                         {/* {
                             Object.keys(tableSetting).map((key, index) => (
                                 <PrivateRoute
@@ -57,7 +102,7 @@ export default function App() {
                                 />
                             ))
                         } */}
-                        <Route path="" component={NotFoundPage} />
+                        <Route path="" component={pageNotFound} />
                     </Switch>
                 </div>
             </section>
