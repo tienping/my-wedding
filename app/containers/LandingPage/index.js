@@ -98,7 +98,14 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
             <aside id="qbootstrap-slider-hero" data-section="home" style={{ marginTop: '-50px' }}>
                 <div className="flexslider">
                     <ul className="slides">
-                        <li style={{ backgroundImage: `url(${require('./images/cover_bg_3.jpg')})` }}>
+                        <li
+                            style={{
+                                backgroundImage: window.innerWidth > 600 ?
+                                    `url(${require('./images/cover_bg_dejoyce-sprinkle.jpg')})`
+                                    :
+                                    `url(${require('./images/cover_bg_dejoyce-sprinkle-mobile2.jpg')})`,
+                            }}
+                        >
                             <div className="overlay"></div>
                             <div className="container">
                                 <div className="row">
