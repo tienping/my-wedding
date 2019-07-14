@@ -29,7 +29,42 @@ export class WishesPage extends React.PureComponent { // eslint-disable-line rea
                 <title>WishesPage</title>
                 <meta name="description" content="Description of WishesPage" />
             </Helmet>
-            <FormattedMessage {...messages.header} />
+
+            <div className={`wishlist-content ${window.innerWidth > 600 ? 'is-desktop' : 'is-mobile'}`}>
+                <div className="wishlist-form">
+                    <div className="float-container">
+                        <div>
+                            <div>Image:</div>
+                            <input type="file" />
+                        </div>
+                        <div>
+                            <div>Message:</div>
+                            <input type="textarea" />
+                        </div>
+                    </div>
+                </div>
+                <div className="wishlist-roll">
+                    {
+                        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((wish, index) => {
+                            const imageSource = require(`./images/gallery-${wish}.jpg`);
+
+                            return (
+                                <div className="wishlist-item" key={index}>
+                                    <div className="background-opacity" style={{ backgroundImage: `url(${imageSource})` }}></div>
+                                    <img className="wishlist-item-image" src={imageSource} alt="preview" />
+                                    <div className="wishlist-msg">
+                                        <div className="msg-container">
+                                            <div className="msg-text">
+                                                We wish you a merry Christmas.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })
+                    }
+                </div>
+            </div>
         </div>
     );
 }
