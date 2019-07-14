@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
+
+import globalScope from 'globalScope';
+
 import LoginForm from 'containers/LoginForm';
 
-const PrivateRoute = ({ component: Component, render: propsRender, token, ...remainingProps }) => {
+const PrivateRoute = ({ component: Component, render: propsRender, ...remainingProps }) => {
     const renderContent = (props) => {
-        if (!token) {
+        if (!globalScope.token) {
             return <LoginForm />;
         }
 
@@ -27,7 +30,6 @@ const PrivateRoute = ({ component: Component, render: propsRender, token, ...rem
 
 PrivateRoute.propTypes = {
     component: PropTypes.any,
-    token: PropTypes.string.isRequired,
 };
 
 export default PrivateRoute;

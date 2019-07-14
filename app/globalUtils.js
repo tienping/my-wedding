@@ -34,26 +34,24 @@ export const getXdp = (percent) => `${percent}vw`;
 // eg: getYdp(50)
 export const getYdp = (percent) => `${percent}vw`;
 
-export const dataChecking = (object, ...argsArr) => {
-    // let args = Array.prototype.slice.call(arguments, 1);
-    let args = argsArr;
+export function dataChecking(object, ...argsArr) {
     if (!argsArr || !argsArr.length) {
         return object;
     }
 
-    if (argsArr[0].constructor === Array) {
-        args = argsArr[0];
-    }
-
+    const args = argsArr[0].constructor === Array ? argsArr[0] : argsArr;
     let obj = object;
+
     for (let i = 0; i < args.length; i += 1) {
-        if (!obj || !Object.prototype.hasOwnProperty.call(obj, args[i])) {
+        if (Array.isArray(obj) && !obj[args[i]]) {
+            return null;
+        } else if (!obj || !Object.prototype.hasOwnProperty.call(obj, args[i])) {
             return null;
         }
         obj = obj[args[i]];
     }
     return obj;
-};
+}
 
 export const setDataByPath = (data, ...argsArr) => {
     let args = argsArr;
