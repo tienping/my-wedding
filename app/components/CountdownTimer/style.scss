@@ -1,0 +1,89 @@
+#qbootstrap-countdown {
+    padding: 4em 0;
+    z-index: 0;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+
+    @media screen and (max-width: 480px) {
+        padding: 2em 0;
+    }
+
+    .section-heading {
+        margin-bottom: 0 !important;
+
+        h3 {
+            color: #fff;
+            font-size: 40px;
+
+            @media screen and (max-width: 768px) {
+                font-size: 30px;
+            }
+        }
+        .datewed {
+            font-size: 30px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .svg-sm .svg {
+            height: 180px;
+            margin-bottom: -50px;
+            padding: 0;
+        }
+
+        .colored .svg {
+            fill: #fff;
+        }
+    }
+
+    .overlay {
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 50vh;
+        width: 100%;
+        max-height: 30rem;
+        position: absolute;
+        vertical-align: middle;
+    }
+
+    .countdown {
+        margin-bottom: 0;
+        font-size: 80px;
+        color: #fff;
+
+        @media screen and (max-width: 700px) {
+            font-size: 54px;
+            line-height: 50px;
+        }
+
+        span {
+            line-height: 4rem;
+            margin: 0 30px;
+            display: inline-block;
+            font-family: "Clicker Script", cursive;
+
+            @media screen and (max-width: 700px) {
+                margin: 0 8px;
+            }
+        }
+
+        small {
+            display: block;
+            font-size: 14px;
+            font-family: "Source Sans Pro", Arial, sans-serif;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+
+            @media screen and (max-width: 700px) {
+                line-height: 15px;
+                font-size: 10px;
+                letter-spacing: 4px;
+            }
+        }
+    }
+
+    .display-over {
+        z-index: 2;
+    }
+}

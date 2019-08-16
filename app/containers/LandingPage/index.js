@@ -14,8 +14,12 @@ import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
 import topNavSetting from 'configs/topNavSetting';
 
+import globalScope from 'globalScope';
+
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
+
+import CountdownTimer from 'components/CountdownTimer';
 
 import makeSelectLandingPage from './selectors';
 import reducer from './reducer';
@@ -25,14 +29,8 @@ import './style.scss';
 import './css/style.scss';
 
 export class LandingPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
-    state = {
-        loaded: false,
-    }
-
-    componentWillMount = () => {
-        this.setState({
-            loaded: true,
-        });
+    componentDidMount = () => {
+        globalScope.initMainScript();
     }
 
     render = () => (
@@ -195,34 +193,9 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                 </div>
             </div>
 
-            <div
-                id="qbootstrap-countdown"
-                data-stellar-background-ratio="0.5"
-                style={{ backgroundImage: `url(${require('./images/cover_bg_2.jpg')})` }}
-                data-section="wedding-day"
-            >
-                <div className="overlay"></div>
-                <div className="display-over">
-                    <div className="container">
-                        <div className="row animate-box">
-                            <div className="col-md-12 section-heading text-center svg-sm colored">
-                                <img src={require('./images/flaticon/svg/006-flower-bell-outline-design-variant-with-vines-and-leaves.svg')} className="svg" alt="preview" />
-                                <h2 className="">The Wedding Day</h2>
-                                <span className="datewed">Saturday, Oct. 26, 2019</span>
-                            </div>
-                        </div>
-                        <div className="row animate-box">
-                            <div className="col-md-8 col-md-offset-2 text-center">
-                                <p className="countdown">
-                                    <span id="days"></span>
-                                    <span id="hours"></span>
-                                    <span id="minutes"></span>
-                                    <span id="seconds"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div className="countdown-section">
+                {/* <img src={require('./images/flaticon/svg/006-flower-bell-outline-design-variant-with-vines-and-leaves.svg')} className="svg" alt="preview" /> */}
+                <CountdownTimer />
             </div>
 
             <div id="qbootstrap-groom-bride" data-section="groom-bride">
@@ -365,10 +338,10 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                                 <img src={require('./images/flaticon/svg/005-two.svg')} className="svg" alt="preview" />
                                 <h2>You Are Invited</h2>
                                 <div className="row">
-                                <div className="col-md-10 col-md-offset-1 subtext">
-                                    <h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>
+                                    <div className="col-md-10 col-md-offset-1 subtext">
+                                        <h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>
+                                    </div>
                                 </div>
-                            </div>
                             </div>
                         </div>
                     </div>
@@ -394,6 +367,7 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                         </div>
                     </div>
                 </div>
+                <script src={require('../../utils/main')}></script>
             </div>
 
             <footer id="footer" role="contentinfo">
@@ -415,12 +389,6 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                     </div> */}
                 </div>
             </footer>
-            {
-                this.state.loaded ?
-                    <script src={require('./js/main')}></script>
-                    :
-                    null
-            }
         </div>
     );
 }

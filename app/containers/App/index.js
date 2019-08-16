@@ -14,6 +14,7 @@ import Notify from 'containers/Notify';
 import LandingPage from 'containers/LandingPage';
 import LogoutForm from 'containers/LogoutForm';
 import LoginForm from 'containers/LoginForm';
+import GuestPage from 'containers/GuestPage';
 // import NotFoundPage from 'containers/NotFoundPage';
 import GlobalDataProcessor from 'containers/GlobalDataProcessor';
 import WishesPage from 'containers/WishesPage';
@@ -73,7 +74,7 @@ export default function App() {
             {
                 key: 'gallery',
                 exact: true,
-                path: '/galler',
+                path: '/gallery',
                 component: GalleryPage,
             },
             {
@@ -132,6 +133,8 @@ export default function App() {
                         }
                         <Route exact={true} path="/login" component={globalScope.token ? LogoutForm : LoginForm} />
                         <Route exact={true} path="/logout" component={LogoutForm} />
+
+                        <Route exact={true} path="/guest/:id" component={GuestPage} />
                         {/* {
                             Object.keys(tableSetting).map((key, index) => (
                                 <PrivateRoute
@@ -143,6 +146,7 @@ export default function App() {
                                 />
                             ))
                         } */}
+                        <Route path="/" component={LandingPage} />
                         <Route path="" component={pageNotFound} />
                     </Switch>
                 </div>

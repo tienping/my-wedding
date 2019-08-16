@@ -280,7 +280,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #qbootstrap-couple,
-#qbootstrap-countdown,
 #qbootstrap-groom-bride,
 #qbootstrap-story,
 #qbootstrap-people,
@@ -293,7 +292,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media screen and (max-width: 480px) {
   #qbootstrap-couple,
-  #qbootstrap-countdown,
   #qbootstrap-groom-bride,
   #qbootstrap-story,
   #qbootstrap-people,
@@ -651,67 +649,6 @@ h1, h2, h3, h4, h5, h6 {
   background-size: cover;
   position: relative;
   background-repeat: no-repeat;
-}
-
-#qbootstrap-countdown {
-  background-size: cover;
-  position: relative;
-  background-repeat: no-repeat;
-  z-index: 0;
-  width: 100%;
-}
-#qbootstrap-countdown .section-heading {
-  margin-bottom: 0 !important;
-}
-#qbootstrap-countdown .section-heading h2 {
-  color: #fff;
-}
-@media screen and (max-width: 768px) {
-  #qbootstrap-countdown .section-heading h2 {
-    font-size: 30px;
-  }
-}
-#qbootstrap-countdown .section-heading .datewed {
-  font-size: 24px;
-  color: rgba(255, 255, 255, 0.7);
-}
-#qbootstrap-countdown .section-heading.svg-sm .svg {
-  height: 180px;
-  margin-bottom: -50px;
-  padding: 0;
-}
-#qbootstrap-countdown .section-heading.colored .svg {
-  fill: #fff;
-}
-#qbootstrap-countdown .overlay {
-  position: absolute !important;
-  width: 100%;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
-  background: rgba(0, 0, 0, 0.4);
-}
-#qbootstrap-countdown .countdown {
-  margin-bottom: 0;
-  font-size: 80px;
-  color: #fff;
-}
-#qbootstrap-countdown .countdown span {
-  margin: 0 30px;
-  display: inline-block;
-  font-family: "Clicker Script", cursive;
-}
-#qbootstrap-countdown .countdown small {
-  display: block;
-  font-size: 14px;
-  font-family: "Source Sans Pro", Arial, sans-serif;
-  letter-spacing: 10px;
-  text-transform: uppercase;
-}
-#qbootstrap-countdown .display-over {
-  z-index: 2;
 }
 
 .couple {
@@ -1237,7 +1174,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 #qbootstrap-started .overlay {
   position: absolute;
-  top: 0;
   left: 0;
   right: 0;
   bottom: 0;

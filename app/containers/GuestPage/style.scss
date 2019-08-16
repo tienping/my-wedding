@@ -1,0 +1,77 @@
+.guest-page {
+    .page-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background: linear-gradient(to bottom, rgb(10, 10, 50) 0%,rgb(60, 10, 60) 100%);
+    }
+
+    .page-content {
+        position: absolute;
+        top: 10%;
+        left: 0%;
+        right: 0;
+        z-index: 1;
+        text-align: center;
+
+        .couple-name  {
+            font-size: 80px;
+            font-family: "Clicker Script", cursive;
+            color: white;
+
+            @media screen and (max-width: 700px) {
+                font-size: 40px;
+            }
+        }
+
+        .countdown-timer {
+            .overlay {
+                position: fixed !important;
+            }
+        }
+
+        .section-text {
+            color: white;
+            text-align: center;
+
+            @media screen and (max-width: 700px) {
+                margin-top: 3rem;
+            }
+
+            .content {
+                padding: 2rem 4rem;
+                background-color: #DDD3;
+                display: inline-block;
+                border-radius: 15px;
+            }
+
+        }
+
+        .buttons {
+            margin-top: 2rem;
+            text-align: center;
+
+            .button {
+                cursor: pointer;
+                color: black;
+                border: 2px solid gold;
+                padding: 1rem 2rem;
+                background-color: #EEEA;
+                display: inline-block;
+                border-radius: 15px;
+
+                &:hover {
+                    background-color: #EEEF;
+                    padding: 1.1rem 2.2rem;
+                    font-weight: bold;
+                    transition: 0.3s padding;
+                }
+            }
+        }
+    }
+}
