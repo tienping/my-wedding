@@ -21,6 +21,7 @@ import WishesPage from 'containers/WishesPage';
 import AllWishesPage from 'containers/AllWishesPage';
 import GalleryPage from 'containers/GalleryPage';
 import DashboardPage from 'containers/DashboardPage';
+import QrGenerator from 'containers/QrGenerator';
 import SecretTunnel from 'components/SecretTunnel';
 
 import globalScope from 'globalScope';
@@ -42,10 +43,16 @@ export default function App() {
             component: LogoutForm,
         },
         {
-            key: 'secret_cxy',
+            key: 'secret_tunnel',
             exact: true,
-            path: '/secret_tunnel_cxy92',
+            path: '/secret_tunnel',
             component: SecretTunnel,
+        },
+        {
+            key: 'qr_generator',
+            exact: true,
+            path: '/qr_generator',
+            component: QrGenerator,
         },
         // {
         //     key: 'any key',

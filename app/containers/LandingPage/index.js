@@ -205,7 +205,7 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                             <div className="col-md-12 text-center section-heading svg-sm-2 colored">
                                 <img src={require('./images/couple.jpg')} className="svg" alt="preview" />
                                 <h2>Groom &amp; Bride</h2>
-                                <p>Come and celebrate with us.</p>
+                                <h3>Come and celebrate with us.</h3>
                             </div>
                         </div>
                     </div>

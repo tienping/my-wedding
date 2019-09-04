@@ -225,3 +225,19 @@ export const devlog = (...logs) => {
         console.log(...logs);
     }
 };
+
+export const getQueryParams = (locationSearchString) => {
+    if (!locationSearchString) {
+        return null;
+    }
+
+    const paramArr = locationSearchString.replace('?', '').split('&');
+    const result = {};
+
+    paramArr.forEach((param) => {
+        const split = param.split('=');
+        result[split[0]] = split[1];
+    });
+
+    return result;
+};

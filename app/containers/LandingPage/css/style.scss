@@ -256,6 +256,15 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 20px;
   line-height: 1.5;
 }
+
+#qbootstrap-groom-bride {
+  padding-bottom: 0 !important;
+}
+
+#qbootstrap-when-where {
+  padding-top: 0 !important;
+}
+
 @media screen and (max-width: 768px) {
   .section-heading h2 {
     font-size: 50px;

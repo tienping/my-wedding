@@ -13,9 +13,8 @@ const globalScope = {
     axios: null, // refer initialiseApp.js
     activated: getCookie('tpzl_activate') || '',
     initMainScript,
+    hideTopBar: false,
 };
-
-console.log(globalScope.initMainScript);
 
 export default globalScope;
 

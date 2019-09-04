@@ -224,10 +224,13 @@ var inlineSVG = function() {
     // + minutes + "Minutes " + seconds + "Seconds ";
 
     // Display the result in an element with id="demo"
-    document.getElementById("days").innerHTML = days +" <small>days</small>";
-    document.getElementById("hours").innerHTML = hours + " <small>hours</small> ";
-    document.getElementById("minutes").innerHTML = minutes + " <small>minutes</small> ";
-    document.getElementById("seconds").innerHTML = seconds + " <small>seconds</small> ";
+    var datsEl = document.getElementById("days");
+    if (datsEl) {
+        document.getElementById("days").innerHTML = days +" <small>days</small>";
+        document.getElementById("hours").innerHTML = hours + " <small>hours</small> ";
+        document.getElementById("minutes").innerHTML = minutes + " <small>minutes</small> ";
+        document.getElementById("seconds").innerHTML = seconds + " <small>seconds</small> ";
+    }
 
     // If the count down is finished, write some text
     if (distance < 0) {

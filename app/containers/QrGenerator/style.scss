@@ -1,0 +1,16 @@
+.qr-item {
+    border: 1px solid lightgray;
+    display: inline-block;
+
+    .canvas-holder {
+        line-height: 0;
+    }
+
+    .item-display {
+        font-weight: 700;
+        color: black;
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Stylish', sans-serif;
+    }
+}

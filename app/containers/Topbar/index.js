@@ -6,7 +6,7 @@
 
 import React from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 
 // import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -18,7 +18,7 @@ import Navigator from 'components/Navigator';
 import { push } from 'react-router-redux';
 
 // import tableSetting from 'configs/tableSetting';
-import { Events, setCookie } from 'globalUtils';
+import { Events } from 'globalUtils';
 
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
@@ -114,6 +114,9 @@ export class Topbar extends React.PureComponent { // eslint-disable-line react/p
     }
 
     render() {
+        if (globalScope.hideTopBar) {
+            return null;
+        }
         return (
             <div className="text-center top-main-container">
                 <div
