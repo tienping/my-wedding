@@ -67,15 +67,15 @@ export default function App() {
     if (globalScope.activated) {
         pathArray.push(...[
             {
-                key: 'wishes',
+                key: 'add_wish',
                 exact: true,
-                path: '/wishes',
+                path: '/add_wish',
                 component: WishesPage,
             },
             {
-                key: 'wishes_all',
+                key: 'wishes',
                 exact: true,
-                path: '/wishes/all',
+                path: '/wishes',
                 component: AllWishesPage,
             },
             {
@@ -84,6 +84,7 @@ export default function App() {
                 path: '/gallery',
                 component: GalleryPage,
             },
+            // page to upload to gallery
             {
                 key: 'dashboard',
                 exact: true,

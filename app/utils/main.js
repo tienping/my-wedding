@@ -29,7 +29,7 @@ var testimonialCarousel = function(){
 var sliderMain = function() {
     $('#qbootstrap-slider-hero .flexslider').flexslider({
         animation: 'fade',
-        slideshowSpeed: 5000,
+        slideshowSpeed: 6000,
         directionNav: true,
         start: function() {
             setTimeout(function() {

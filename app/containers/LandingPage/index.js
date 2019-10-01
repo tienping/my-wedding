@@ -20,6 +20,8 @@ import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 
 import CountdownTimer from 'components/CountdownTimer';
+import { fireEmail } from 'emailUtil';
+import { dataChecking } from 'globalUtils';
 
 import makeSelectLandingPage from './selectors';
 import reducer from './reducer';
@@ -29,6 +31,12 @@ import './style.scss';
 import './css/style.scss';
 
 export class LandingPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+    state = {
+        modalTitle: null,
+        modalMessageType: null,
+        modalMessage: null,
+    };
+
     componentDidMount = () => {
         globalScope.initMainScript();
     }
@@ -96,6 +104,89 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
             <aside id="qbootstrap-slider-hero" data-section="home" style={{ marginTop: '-50px' }}>
                 <div className="flexslider">
                     <ul className="slides">
+                        <li style={{ backgroundImage: `url(${require('./images/with-book.jpg')})` }}>
+                            <div className="overlay"></div>
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-md-8 col-md-offset-2 text-center slider-text">
+                                        <div className="slider-text-inner">
+                                            <h2>
+                                                <div className="holder">
+                                                    <span>The Wedding of</span>
+                                                </div>
+                                                <div>Tien Ping &amp; Zhi Ling</div>
+                                            </h2>
+                                            <h3>Welcome to our wedding website! Thank you so much for visiting! This is the place you&#39;ll updatesfind updates about our wedding celebration.</h3>
+                                            <p className="date"><span>26.10.2019</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li style={{ backgroundImage: `url(${require('./images/doll-machine.jpg')})` }}>
+                            <div className="overlay"></div>
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-md-8 col-md-offset-2 text-center slider-text">
+                                        <div className="slider-text-inner">
+                                            <h2>
+                                                <div className="holder">
+                                                    <span>The Wedding of</span>
+                                                </div>
+                                                <div>Tien Ping &amp; Zhi Ling</div>
+                                            </h2>
+                                            <h3>Welcome to our wedding website! Thank you so much for visiting! This is the place you&#39;ll updatesfind updates about our wedding celebration.</h3>
+                                            <p className="date"><span>26.10.2019</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li style={{ backgroundImage: `url(${require('./images/dark-light.jpg')})` }}>
+                            <div className="overlay"></div>
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-md-8 col-md-offset-2 text-center slider-text">
+                                        <div className="slider-text-inner">
+                                            <h2>
+                                                <div className="holder">
+                                                    <span>Welcome to</span>
+                                                </div>
+                                                <div>Tien Ping &amp; Zhi Ling</div>
+                                            </h2>
+                                            <h3>Welcome to our wedding website! Thank you so much for visiting! This is the place you&#39;ll updatesfind updates about our wedding celebration.</h3>
+                                            <p className="date"><span>26.10.2019</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li
+                            style={{
+                                backgroundImage: window.innerWidth > 600 ?
+                                    `url(${require('./images/jump.jpg')})`
+                                    :
+                                    `url(${require('./images/jump-mobile.jpg')})`,
+                            }}
+                        >
+                            <div className="overlay"></div>
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-md-8 col-md-offset-2 text-center slider-text">
+                                        <div className="slider-text-inner">
+                                            <h2>
+                                                <div className="holder">
+                                                    <span>Welcome to</span>
+                                                </div>
+                                                <div>Tien Ping &amp; Zhi Ling</div>
+                                            </h2>
+                                            <h3>Welcome to our wedding website! Thank you so much for visiting! This is the place you&#39;ll updatesfind updates about our wedding celebration.</h3>
+                                            <p className="date"><span>26.10.2019</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                         <li
                             style={{
                                 backgroundImage: window.innerWidth > 600 ?
@@ -109,46 +200,8 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                                 <div className="row">
                                     <div className="col-md-8 col-md-offset-2 text-center slider-text">
                                         <div className="slider-text-inner">
-                                            <h2>
-                                                <div className="holder">
-                                                    <span>The Wedding of</span>
-                                                </div>
-                                                <div>Tien Ping &amp; Zhi Ling</div>
-                                            </h2>
-                                            <h3>Welcome to our wedding website! Thank you so much for visiting! This is the place you&#39;ll find every piece of information you will need regarding our wedding celebration.</h3>
-                                            <p className="date"><span>26.10.2019</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li style={{ backgroundImage: `url(${require('./images/cover_bg_2.jpg')})` }}>
-                            <div className="overlay"></div>
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-md-8 col-md-offset-2 text-center slider-text">
-                                        <div className="slider-text-inner">
-                                            <h2>
-                                                <div className="holder">
-                                                    <span>Welcome to</span>
-                                                </div>
-                                                <div>TP & ZL Wedding</div>
-                                            </h2>
-                                            <h3>Welcome to our wedding website! Thank you so much for visiting! This is the place you&#39;ll find every piece of information you will need regarding our wedding celebration.</h3>
-                                            <p className="date"><span>26.10.2019</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li style={{ backgroundImage: `url(${require('./images/cover_bg_1.jpg')})` }}>
-                            <div className="overlay"></div>
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-md-8 col-md-offset-2 text-center slider-text">
-                                        <div className="slider-text-inner">
-                                            <h2>I Have The Most Romantic Man</h2>
-                                            <h3>Welcome to our wedding website! Thank you so much for visiting! This is the place you&#39;ll find every piece of information you will need regarding our wedding celebration.</h3>
+                                            <h2>No Longer Two But One</h2>
+                                            <h3>Welcome to our wedding website! Thank you so much for visiting! This is the place you&#39;ll updatesfind updates about our wedding celebration.</h3>
                                             <p className="date"><span>26.10.2019</span></p>
                                         </div>
                                     </div>
@@ -279,7 +332,7 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                                         <div className="col-md-5 col-md-pull-1">
                                             <div className="date">
                                                 <i className="far fa-clock"></i>
-                                                <span>09:30 AM</span>
+                                                <span>09:00 AM</span>
                                                 <span>11:30 AM</span>
                                             </div>
                                         </div>
@@ -329,7 +382,7 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                 </div>
             </div>
 
-            <div id="qbootstrap-started" className="qbootstrap-bg" data-section="rsvp" data-stellar-background-ratio="0.5" style={{ backgroundImage: `url(${require('./images/cover_bg_1.jpg')})` }}>
+            <div id="qbootstrap-started" className="qbootstrap-bg" data-section="rsvp" data-stellar-background-ratio="0.5" style={{ backgroundImage: `url(${require('./images/owl-eye.jpg')})` }}>
                 <div className="overlay"></div>
                 <div className="container">
                     <div className="row animate-box">
@@ -339,7 +392,7 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                                 <h2>You Are Invited</h2>
                                 <div className="row">
                                     <div className="col-md-10 col-md-offset-1 subtext">
-                                        <h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>
+                                        <h3>You are welcome to join our wedding ceremony at Sing Ang Tong Methodist Church on 26 October 2019, 9AM sharp. Please do leave us a message so we can arrange accordingly.</h3>
                                     </div>
                                 </div>
                             </div>
@@ -347,28 +400,107 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                     </div>
                     <div className="row animate-box">
                         <div className="col-md-10 col-md-offset-1">
-                            <form className="form-inline">
+                            <div className="form-inline">
                                 <div className="col-md-4 col-sm-4">
                                     <div className="form-group">
                                         <label htmlFor="name" className="sr-only">Name</label>
-                                        <input type="name" className="form-control" id="name" placeholder="Name" />
+                                        <input
+                                            type="name"
+                                            className="form-control"
+                                            id="name"
+                                            placeholder="Name"
+                                            onChange={(event) => {
+                                                this.setState({
+                                                    name: dataChecking(event, 'target', 'value'),
+                                                });
+                                            }}
+                                        />
                                     </div>
                                 </div>
                                 <div className="col-md-4 col-sm-4">
                                     <div className="form-group">
-                                        <label htmlFor="email" className="sr-only">Email</label>
-                                        <input type="email" className="form-control" id="email" placeholder="Email" />
+                                        <label htmlFor="contact" className="sr-only">Phone Number</label>
+                                        <input
+                                            type="tel"
+                                            className="form-control"
+                                            id="contact"
+                                            placeholder="Phone Number"
+                                            onChange={(event) => {
+                                                this.setState({
+                                                    contact: dataChecking(event, 'target', 'value'),
+                                                });
+                                            }}
+                                        />
                                     </div>
                                 </div>
                                 <div className="col-md-4 col-sm-4">
-                                    <button type="submit" className="btn btn-default btn-block">I am Attending</button>
+                                    <button
+                                        className="btn btn-default btn-block"
+                                        onClick={() => {
+                                            if (!this.state.name || !this.state.contact) {
+                                                return null;
+                                            }
+
+                                            fireEmail({
+                                                templateParams: {
+                                                    name: this.state.name,
+                                                    contact: this.state.contact,
+                                                },
+                                                successCallback: () => this.setState({
+                                                    name: '',
+                                                    contact: '',
+                                                    modalTitle: 'Success',
+                                                    modalMessageType: 'success',
+                                                    modalMessage: 'RSVP send successfully',
+                                                }),
+                                                failureCallback: () => this.setState({
+                                                    modalTitle: 'Failed',
+                                                    modalMessageType: 'error',
+                                                    modalMessage: 'RSVP send failed... Please contact 0168556201 or petwesley@gmail.com.',
+                                                }),
+                                            });
+
+                                            return true;
+                                        }}
+                                    >I am Attending</button>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <script src={require('../../utils/main')}></script>
             </div>
+
+            {
+                this.state.modalMessage ?
+                    <div className="email-message-modal">
+                        <div className="modal-overlay" />
+                        <div className="modal-container animated bounce">
+                            <div className="modal-inner">
+                                <div className="modal-header">
+                                    <div className={`modal-title type-${this.state.modalMessageType}`}>
+                                        {this.state.modalTitle || 'Email'}
+                                    </div>
+                                    <i
+                                        onClick={() => {
+                                            this.setState({
+                                                modalTitle: '',
+                                                modalMessageType: '',
+                                                modalMessage: '',
+                                            });
+                                        }}
+                                        className="close-btn far fa-window-close"
+                                    />
+                                </div>
+                                <div className="modal-content">
+                                    {this.state.modalMessage}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    :
+                    null
+            }
 
             <footer id="footer" role="contentinfo">
                 <div className="container">

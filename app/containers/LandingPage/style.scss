@@ -5,3 +5,64 @@
     background-repeat: no-repeat;
     background: linear-gradient(to bottom, rgb(10, 10, 50) 0%,rgb(60, 10, 60) 100%);
 }
+
+.email-message-modal {
+    .modal-overlay {
+        background-color: #0008;
+        opacity: 0.5;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        position: fixed;
+    }
+
+    .modal-container {
+        min-height: 100px;
+        top: 35%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        position: fixed;
+
+        .modal-inner {
+            display: inline-block;
+            position: relative;
+            padding: 3.5rem 5rem;
+            border-radius: 10px;
+            background-color: #FDFDFD;
+            box-shadow: 0 0 10px 3px #0005;
+
+            .modal-header{
+                padding-bottom: 1rem;
+
+                .modal-title {
+                    font-size: 26px;
+                    font-weight: 700;
+
+                    &.type-error { color: #D00; }
+                    &.type-success { color: #0C0; }
+                }
+
+                .close-btn {
+                    position: absolute;
+                    padding: 0.3rem 0.6rem;
+                    top: .35rem;
+                    right: .35rem;
+                    font-size: 35px;
+                    cursor: pointer;
+                    opacity: 0.6;
+                    background-color: #FAFAFA;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .modal-content {
+                font-size: 16px;
+            }
+        }
+    }
+}
