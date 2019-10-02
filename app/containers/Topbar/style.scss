@@ -3,6 +3,10 @@
 .top-main-container {
     background-color: $main_bg;
 
+    .header-title {
+        text-align: left;
+    }
+
     .side-menu-burder {
         position: absolute;
         left: 0;

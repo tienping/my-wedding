@@ -16,12 +16,12 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
-import TopNavigation from 'components/TopNavigation';
-import topNavSetting from 'configs/topNavSetting';
+// import TopNavigation from 'components/TopNavigation';
+// import topNavSetting from 'configs/topNavSetting';
 
 // Import root app
 import App from 'containers/App';
-import Topbar from 'containers/Topbar';
+// import Topbar from 'containers/Topbar';
 
 // Import Language Provider
 import LanguageProvider from 'containers/LanguageProvider';
@@ -61,7 +61,7 @@ const startingApp = () => {
                     <ConnectedRouter history={history}>
                         <div>
                             <NotificationContainer />
-                            <div
+                            {/* <div
                                 id="topbar-container"
                                 className=""
                                 style={{
@@ -70,7 +70,7 @@ const startingApp = () => {
                             >
                                 <Topbar />
                                 <TopNavigation />
-                            </div>
+                            </div> */}
                             <App />
                         </div>
                     </ConnectedRouter>

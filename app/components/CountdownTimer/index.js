@@ -132,10 +132,8 @@ class CountdownTimer extends React.PureComponent { // eslint-disable-line react/
 
     render = () => (
         <div
-            id="qbootstrap-countdown"
             data-stellar-background-ratio="0.5"
             // style={{ backgroundImage: `url(${require('./images/cover_bg_2.jpg')})` }}
-            data-section="wedding-day"
         >
             <canvas className="overlay" id="particle-canvas"></canvas>
             <div className="display-over">

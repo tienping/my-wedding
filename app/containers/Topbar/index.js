@@ -15,7 +15,7 @@ import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
 import Navigator from 'components/Navigator';
-import { push } from 'react-router-redux';
+// import { push } from 'react-router-redux';
 
 // import tableSetting from 'configs/tableSetting';
 import { Events } from 'globalUtils';
@@ -61,33 +61,33 @@ export class Topbar extends React.PureComponent { // eslint-disable-line react/p
                 //     });
                 // }
 
-                if (globalScope.token) {
-                    items.push({
-                        code: 'user_profile',
-                        requireLogin: true,
-                        type: 'dropdown',
-                        title: 'Profile',
-                        verticalText: 'Profile',
-                        // text: 'Profile',
-                        iconClass: 'fa fa-user p-1',
-                        dropdownClass: 'text-white text-hover-my-style p-1',
-                        items: [
-                            {
-                                code: 'logout',
-                                requireLogin: true,
-                                type: 'exec_function',
-                                text: 'Logout',
-                                iconClass: 'fas fa-sign-out-alt px-1',
-                                handleLinkClick: () => {
-                                    globalScope.previousPage = window.location.pathname;
-                                    this.props.dispatch(push({
-                                        pathname: '/logout',
-                                    }));
-                                },
-                            },
-                        ],
-                    });
-                }
+                // if (globalScope.token) {
+                //     items.push({
+                //         code: 'user_profile',
+                //         requireLogin: true,
+                //         type: 'dropdown',
+                //         title: 'Profile',
+                //         verticalText: 'Profile',
+                //         // text: 'Profile',
+                //         iconClass: 'fa fa-user p-1',
+                //         dropdownClass: 'text-white text-hover-my-style p-1',
+                //         items: [
+                //             {
+                //                 code: 'logout',
+                //                 requireLogin: true,
+                //                 type: 'exec_function',
+                //                 text: 'Logout',
+                //                 iconClass: 'fas fa-sign-out-alt px-1',
+                //                 handleLinkClick: () => {
+                //                     globalScope.previousPage = window.location.pathname;
+                //                     this.props.dispatch(push({
+                //                         pathname: '/logout',
+                //                     }));
+                //                 },
+                //             },
+                //         ],
+                //     });
+                // }
 
                 return items;
             })(),
@@ -168,15 +168,15 @@ export class Topbar extends React.PureComponent { // eslint-disable-line react/p
                         </div>
                     </div>
                 </div>
-                <div>
-                    <div>
+                {/* <div>
+                    <div className="header-title container">
                         <NavLink to="/" title="Go to homepage" className="gami-header-logo" type="default">
-                            <span className="top-bar-side-title text-main-color hidden-xs">HERMO</span>
+                            <span className="top-bar-side-title text-main-color hidden-xs">Love</span>
                             <span className="top-bar-title big text-main-color text-hover-my-style">WhenImeetU</span>
-                            <span className="top-bar-side-title text-main-color hidden-xs">HERMO</span>
+                            <span className="top-bar-side-title text-main-color hidden-xs">Love</span>
                         </NavLink>
                     </div>
-                </div>
+                </div> */}
                 <Navigator
                     className="visible-sm visible-md visible-lg"
                     itemClassName="text-white text-hover-my-style"

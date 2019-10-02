@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 // import { FormattedMessage } from 'react-intl';
@@ -62,8 +62,14 @@ export class GuestPage extends React.PureComponent { // eslint-disable-line reac
                     </div>
                 </div>
 
-                <div className="buttons animated slideInDown">
-                    <NavLink className="button" to="/gallery">
+                <div
+                    className="buttons animated slideInDown"
+                    onClick={this.props.onClose}
+                >
+                    {/* <div className="button">
+                        Back to Home Page
+                    </div> */}
+                    <NavLink className="button" to="/">
                         Back to Home Page
                     </NavLink>
                 </div>
@@ -73,7 +79,7 @@ export class GuestPage extends React.PureComponent { // eslint-disable-line reac
 }
 
 GuestPage.propTypes = {
-    dispatch: PropTypes.func.isRequired,
+    // dispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
