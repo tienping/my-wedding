@@ -93,8 +93,7 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                         // marginTop: topNavSetting && topNavSetting.length ? '-64px' : '-35px',
                     }}
                 >
-                    <div className="top-navigation-bar-bg" />
-                    <div className="top-navigation-bar-bg" />
+                    <div className="header-bg" />
                     <div className="container">
                         {/* <div className="row"> */}
                         <nav className="navbar navbar-default">
