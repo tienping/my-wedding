@@ -22,6 +22,7 @@ import GalleryPage from 'containers/GalleryPage';
 import DashboardPage from 'containers/DashboardPage';
 import QrGenerator from 'containers/QrGenerator';
 import SecretTunnel from 'components/SecretTunnel';
+import GuestPage from 'containers/GuestPage';
 
 import globalScope from 'globalScope';
 
@@ -53,14 +54,6 @@ export default function App() {
             path: '/qr_generator',
             component: QrGenerator,
         },
-        // {
-        //     key: 'any key',
-        //     exact: 'boolean',
-        //     path: 'path_to',
-        //     requireAuth: true,
-        //     component: 'imported_reeact_component',
-        //     render: (props) => <TableListingPage {...props} pageType={'type'} />,
-        // },
     ];
 
     if (globalScope.activated) {
@@ -78,12 +71,11 @@ export default function App() {
                 component: AllWishesPage,
             },
             {
-                key: 'gallery',
+                key: 'galleries',
                 exact: true,
-                path: '/gallery',
+                path: '/galleries',
                 component: GalleryPage,
             },
-            // page to upload to gallery
             {
                 key: 'dashboard',
                 exact: true,
@@ -141,18 +133,8 @@ export default function App() {
                         <Route exact={true} path="/login" component={globalScope.token ? LogoutForm : LoginForm} />
                         <Route exact={true} path="/logout" component={LogoutForm} />
 
-                        <Route exact={true} path="/:guest(guest|guests)/:id" component={LandingPage} />
-                        {/* {
-                            Object.keys(tableSetting).map((key, index) => (
-                                <PrivateRoute
-                                    key={index}
-                                    exact={true}
-                                    token={globalScope.token || ''}
-                                    path={dataChecking(tableSetting, key, 'link')}
-                                    render={(props) => <TableListingPage {...props} pageType={key} />}
-                                />
-                            ))
-                        } */}
+                        <Route exact={true} path="/:guest(guest|guests)/:id" component={GuestPage} />
+                        <Route exact={true} path="/info" component={GuestPage} />
                         <Route path="/" component={LandingPage} />
                         <Route path="" component={pageNotFound} />
                     </Switch>

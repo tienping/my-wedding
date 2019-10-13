@@ -12,6 +12,30 @@
     bottom: 0;
 }
 
+nav.navbar.navbar-default {
+    position: absolute;
+    background: black !important;
+    left: 0;
+    right: 0;
+    height: 50px;
+    transition: height 1s;
+
+    &.showNavbar {
+        height: 320px;
+    }
+}
+#qbootstrap-header #navbar.navbar-collapse {
+    ul.navbar-nav {
+        li span {
+            color: white;
+        }
+
+        li.active span {
+            color: #FF847C !important;
+        }
+    }
+}
+
 .guest-modal {
     position: fixed;
     top: 0;

@@ -132,6 +132,7 @@ class CountdownTimer extends React.PureComponent { // eslint-disable-line react/
 
     render = () => (
         <div
+            className="qbootstrap-countdown"
             data-stellar-background-ratio="0.5"
             // style={{ backgroundImage: `url(${require('./images/cover_bg_2.jpg')})` }}
         >

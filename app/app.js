@@ -21,10 +21,11 @@ import createHistory from 'history/createBrowserHistory';
 
 // Import root app
 import App from 'containers/App';
-// import Topbar from 'containers/Topbar';
+import NavTool from 'containers/NavTool';
 
 // Import Language Provider
 import LanguageProvider from 'containers/LanguageProvider';
+// import NavTool from 'containers/NavTool';
 
 import initialiseApp from 'initialiseApp';
 
@@ -61,17 +62,8 @@ const startingApp = () => {
                     <ConnectedRouter history={history}>
                         <div>
                             <NotificationContainer />
-                            {/* <div
-                                id="topbar-container"
-                                className=""
-                                style={{
-                                    height: topNavSetting && topNavSetting.length ? '64px' : '34px',
-                                }}
-                            >
-                                <Topbar />
-                                <TopNavigation />
-                            </div> */}
                             <App />
+                            <NavTool />
                         </div>
                     </ConnectedRouter>
                 </LanguageProvider>

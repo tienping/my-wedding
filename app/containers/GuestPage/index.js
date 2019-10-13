@@ -17,6 +17,7 @@ import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 
 import CountdownTimer from 'components/CountdownTimer';
+import globalScope from 'globalScope';
 
 import makeSelectGuestPage from './selectors';
 import reducer from './reducer';
@@ -25,6 +26,64 @@ import saga from './saga';
 import './style.scss';
 
 export class GuestPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+    renderTeaser = () => (
+        <div className="page-content">
+            <div className="couple-name p-0 mt-0">TienPing & ZhiLing</div>
+
+            <div className="countdown-timer">
+                <CountdownTimer />
+            </div>
+
+            <div className="section-text animated fadeIn">
+                <div className="content">
+                    <div>Preparation in progress...</div>
+                    <div>Please come back later for more updates</div>
+                </div>
+            </div>
+
+            <div
+                className="buttons animated slideInDown"
+                onClick={this.props.onClose}
+            >
+                {/* <div className="button">
+                    Back to Home Page
+                </div> */}
+                <NavLink className="button" to="/">
+                    Back to Home Page
+                </NavLink>
+            </div>
+        </div>
+    )
+
+    renderRegister = () => (
+        <div className="page-content">
+            <div className="couple-name p-0 mt-0">TienPing & ZhiLing</div>
+
+            <div className="countdown-timer">
+                <CountdownTimer />
+            </div>
+
+            <div className="section-text animated fadeIn">
+                <div className="content">
+                    <div>Preparation in progress...</div>
+                    <div>Please come back later for more updates</div>
+                </div>
+            </div>
+
+            <div
+                className="buttons animated slideInDown"
+                onClick={this.props.onClose}
+            >
+                {/* <div className="button">
+                    Back to Home Page
+                </div> */}
+                <NavLink className="button" to="/">
+                    Back to Home Page
+                </NavLink>
+            </div>
+        </div>
+    )
+
     render = () => (
         <div className="guest-page">
             <div className="page-overlay" />
@@ -48,32 +107,12 @@ export class GuestPage extends React.PureComponent { // eslint-disable-line reac
                 <meta name="twitter:card" content="" />
             </Helmet>
 
-            <div className="page-content">
-                <div className="couple-name p-0 mt-0">TienPing & ZhiLing</div>
-
-                <div className="countdown-timer">
-                    <CountdownTimer />
-                </div>
-
-                <div className="section-text animated fadeIn">
-                    <div className="content">
-                        <div>Preparation in progress...</div>
-                        <div>Please come back later for more updates</div>
-                    </div>
-                </div>
-
-                <div
-                    className="buttons animated slideInDown"
-                    onClick={this.props.onClose}
-                >
-                    {/* <div className="button">
-                        Back to Home Page
-                    </div> */}
-                    <NavLink className="button" to="/">
-                        Back to Home Page
-                    </NavLink>
-                </div>
-            </div>
+            {
+                globalScope.activated === 'tpzl' ?
+                    this.renderRegister()
+                    :
+                    this.renderTeaser()
+            }
         </div>
     );
 }

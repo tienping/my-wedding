@@ -93,30 +93,42 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                         // marginTop: topNavSetting && topNavSetting.length ? '-64px' : '-35px',
                     }}
                 >
-                    <div className="header-bg" />
+                    {/* <div className="header-bg" /> */}
                     <div className="container">
                         {/* <div className="row"> */}
-                        <nav className="navbar navbar-default">
+                        <nav className={`navbar navbar-default ${this.state.showNavbar ? 'showNavbar' : ''}`}>
                             <div className="navbar-header">
                                 {/* Mobile Toggle Menu Button */}
-                                <a href="" className="js-qbootstrap-nav-toggle qbootstrap-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
+                                <div
+                                    className="qbootstrap-nav-toggle"
+                                    onClick={() => {
+                                        this.setState({ showNavbar: !this.state.showNavbar });
+                                    }}
+                                ><i></i></div>
                                 <a className="navbar-brand" href="/">TienPing & ZhiLing</a>
                             </div>
-                            <div id="navbar" className="navbar-collapse collapse">
-                                <ul className="nav navbar-nav navbar-right">
-                                    <li className="active"><a href="" data-nav-section="home"><span>Home</span></a></li>
-                                    <li><a href="" data-nav-section="couple"><span>Couple</span></a></li>
-                                    <li><a href="" data-nav-section="countdown"><span>Countdown</span></a></li>
-                                    <li><a href="" data-nav-section="groom-bride"><span>Groom &amp; Bride</span></a></li>
-                                    {/* <li><a href="" data-nav-section="story"><span>Love Story</span></a></li> */}
-                                    {/* <li><a href="" data-nav-section="greetings"><span>Greetings</span></a></li> */}
-                                    {/* <li><a href="" data-nav-section="people"><span>People</span></a></li> */}
-                                    <li><a href="" data-nav-section="when-where"><span>When &amp; Where</span></a></li>
-                                    <li><a href="" data-nav-section="rsvp"><span>RSVP</span></a></li>
-                                    {/* <li><a href="" data-nav-section="gallery"><span>Gallery</span></a></li> */}
-                                    {/* <li><a href="" data-nav-section="blog"><span>Blog</span></a></li> */}
-                                </ul>
-                            </div>
+                            {
+                                this.state.showNavbar ?
+                                    <div className="animated fadeInLeft">
+                                        <div id="navbar" className="navbar-collapse animated slideInLeft">
+                                            <ul className="nav navbar-nav navbar-right">
+                                                <li className="active"><a href="" data-nav-section="home"><span>Home</span></a></li>
+                                                <li><a href="" data-nav-section="couple"><span>Couple</span></a></li>
+                                                <li><a href="" data-nav-section="countdown"><span>Countdown</span></a></li>
+                                                <li><a href="" data-nav-section="groom-bride"><span>Groom &amp; Bride</span></a></li>
+                                                {/* <li><a href="" data-nav-section="story"><span>Love Story</span></a></li> */}
+                                                {/* <li><a href="" data-nav-section="greetings"><span>Greetings</span></a></li> */}
+                                                {/* <li><a href="" data-nav-section="people"><span>People</span></a></li> */}
+                                                <li><a href="" data-nav-section="when-where"><span>When &amp; Where</span></a></li>
+                                                <li><a href="" data-nav-section="rsvp"><span>RSVP</span></a></li>
+                                                {/* <li><a href="" data-nav-section="gallery"><span>Gallery</span></a></li> */}
+                                                {/* <li><a href="" data-nav-section="blog"><span>Blog</span></a></li> */}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    :
+                                    null
+                            }
                         </nav>
                         {/* </div> */}
                     </div>
@@ -269,12 +281,7 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                 </div>
 
                 <div id="qbootstrap-countdown" data-section="countdown">
-                    <div className="container">
-                        <div className="row animate-box">
-                            {/* <img src={require('./images/flaticon/svg/006-flower-bell-outline-design-variant-with-vines-and-leaves.svg')} className="svg" alt="preview" /> */}
-                            <CountdownTimer />
-                        </div>
-                    </div>
+                    <CountdownTimer />
                 </div>
 
                 <div id="qbootstrap-groom-bride" data-section="groom-bride">
@@ -339,7 +346,7 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                         <div className="row row-bottom-padded-md">
                             <div className="col-md-6 text-center animate-box">
                                 <div className="wedding-events">
-                                    <div className="ceremony-bg" style={{ backgroundImage: `url(${require('./images/wedding_ceremony.jpg')})` }}></div>
+                                    <div className="ceremony-bg" style={{ backgroundImage: `url(${require('./images/wedding_ceremony2.jpg')})` }}></div>
                                     <div className="desc">
                                         <h3>Wedding Ceremony</h3>
                                         <div className="row">
