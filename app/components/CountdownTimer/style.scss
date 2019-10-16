@@ -87,4 +87,22 @@
     .display-over {
         z-index: 2;
     }
+
+    &.simple-version {
+        display: inline-block;
+
+        .cd-title { font-size: 24px; }
+        .datewed { font-size: 18px; }
+        p.countdown {
+            font-size: 32px;
+
+            > span {
+                margin: 0 12px;
+                line-height: 3rem;
+
+                > small { font-size: 12px; }
+            }
+        }
+        // .section-heading, .countdown { text-align: right !important; }
+    }
 }

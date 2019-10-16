@@ -255,7 +255,7 @@ const initMainScript = () => {
         clickMenu();
     }
     parallax();
-    // windowScroll();
+    windowScroll();
     navigationSection();
     contentWayPoint();
     inlineSVG();

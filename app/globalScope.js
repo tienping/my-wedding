@@ -14,6 +14,7 @@ const globalScope = {
     activated: getCookie('tpzl_activate') || '',
     initMainScript,
     hideTopBar: false,
+    firebaseDbPrefix: 'tpzl_',
 };
 
 export default globalScope;

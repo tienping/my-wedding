@@ -132,7 +132,7 @@ class CountdownTimer extends React.PureComponent { // eslint-disable-line react/
 
     render = () => (
         <div
-            className="qbootstrap-countdown"
+            className={`qbootstrap-countdown ${this.props.simple ? 'simple-version' : ''}`}
             data-stellar-background-ratio="0.5"
             // style={{ backgroundImage: `url(${require('./images/cover_bg_2.jpg')})` }}
         >
@@ -141,7 +141,7 @@ class CountdownTimer extends React.PureComponent { // eslint-disable-line react/
                 <div className="container">
                     <div className="row animate-box">
                         <div className="col-md-12 section-heading text-center svg-sm colored pb-2">
-                            <h3 className="p-0 mt-0">Wedding Day</h3>
+                            <h3 className="cd-title p-0 mt-0">Wedding Day</h3>
                             <span className="datewed">Saturday, Oct. 26, 2019</span>
                         </div>
                     </div>

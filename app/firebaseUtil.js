@@ -1,19 +1,17 @@
-// import firebase from 'firebase';
-// import 'firebase/storage';
+import firebase from 'firebase';
 
-// const config = {
-//     apiKey: 'AIzaSyB1gFXhN6c-c1T3r6vExJvswMTFbeg6jZo',
-//     authDomain: 'test-image-92739.firebaseapp.com',
-//     databaseURL: 'https://test-image-92739.firebaseio.com',
-//     projectId: 'test-image-92739',
-//     storageBucket: 'test-image-92739.appspot.com',
-//     messagingSenderId: '1095752400107',
-// };
-// firebase.initializeApp(config);
+const firebaseConfig = {
+    apiKey: 'AIzaSyAE8Tony828xzh02nH3dzkH3LDgvGEOTRg',
+    authDomain: 'whenimeetu-backend.firebaseapp.com',
+    databaseURL: 'https://whenimeetu-backend.firebaseio.com',
+    projectId: 'whenimeetu-backend',
+    storageBucket: 'whenimeetu-backend.appspot.com',
+    messagingSenderId: '29972754626',
+    appId: '1:29972754626:web:a489d0bd2a217d33d44b5b',
+};
 
-// const storage = firebase.storage();
+firebase.initializeApp(firebaseConfig);
 
-// export {
-//     storage,
-//     firebase as default,
-// };
+export const guestRef = firebase.database().ref('guest');
+
+export default firebase;

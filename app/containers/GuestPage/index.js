@@ -19,6 +19,9 @@ import injectReducer from 'utils/injectReducer';
 import CountdownTimer from 'components/CountdownTimer';
 import globalScope from 'globalScope';
 
+import { guestRef } from 'firebaseUtil';
+import { dataChecking } from 'globalUtils';
+
 import makeSelectGuestPage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
@@ -26,60 +29,68 @@ import saga from './saga';
 import './style.scss';
 
 export class GuestPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+    constructor(props) {
+        super(props);
+        this.state = {
+            guestData: null,
+        };
+    }
+
+    componentDidMount = () => {
+        if (dataChecking(this.props, 'match', 'params', 'guest') === 'guest' && dataChecking(this.props, 'match', 'params', 'id')) {
+            this.setState({ guestNum: this.props.match.params.id });
+            guestRef.child(`${globalScope.firebaseDbPrefix}${this.props.match.params.id}`).once('value', (snapshot) => {
+                console.log(snapshot.val());
+                this.setState({ guestData: snapshot.val() });
+            });
+        }
+    }
+
     renderTeaser = () => (
-        <div className="page-content">
-            <div className="couple-name p-0 mt-0">TienPing & ZhiLing</div>
-
+        <div>
             <div className="countdown-timer">
-                <CountdownTimer />
+                <CountdownTimer simple={!!this.state.guestData} />
             </div>
 
-            <div className="section-text animated fadeIn">
-                <div className="content">
-                    <div>Preparation in progress...</div>
-                    <div>Please come back later for more updates</div>
+            <div className="section-text animated fadeInDown">
+                <div className="content container">
+                    {
+                        this.state.guestData ?
+                            <div className="guest-info">
+                                <div>宾客资料:</div>
+                                <hr />
+                                <div className="info-content">
+                                    <div className="info-row">
+                                        <div className="info-header">名字</div>
+                                        <div className="info-column-symbol">:</div>
+                                        <div className="info-text">{this.state.guestData.name}</div>
+                                    </div>
+                                    <div className="info-row">
+                                        <div className="info-header">出席人数</div>
+                                        <div className="info-column-symbol">:</div>
+                                        <div className="info-text">{this.state.guestData.pax}人</div>
+                                    </div>
+                                    <div className="info-row">
+                                        <div className="info-header">桌号</div>
+                                        <div className="info-column-symbol">:</div>
+                                        <div className="info-text">{this.state.guestData.table || '- 未定 -'}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            :
+                            <div>Loading...</div>
+                    }
                 </div>
-            </div>
-
-            <div
-                className="buttons animated slideInDown"
-                onClick={this.props.onClose}
-            >
-                {/* <div className="button">
-                    Back to Home Page
-                </div> */}
-                <NavLink className="button" to="/">
-                    Back to Home Page
-                </NavLink>
             </div>
         </div>
     )
 
     renderRegister = () => (
-        <div className="page-content">
-            <div className="couple-name p-0 mt-0">TienPing & ZhiLing</div>
-
-            <div className="countdown-timer">
-                <CountdownTimer />
-            </div>
-
+        <div>
             <div className="section-text animated fadeIn">
-                <div className="content">
-                    <div>Preparation in progress...</div>
-                    <div>Please come back later for more updates</div>
+                <div className="content container">
+                    Welcome
                 </div>
-            </div>
-
-            <div
-                className="buttons animated slideInDown"
-                onClick={this.props.onClose}
-            >
-                {/* <div className="button">
-                    Back to Home Page
-                </div> */}
-                <NavLink className="button" to="/">
-                    Back to Home Page
-                </NavLink>
             </div>
         </div>
     )
@@ -107,12 +118,25 @@ export class GuestPage extends React.PureComponent { // eslint-disable-line reac
                 <meta name="twitter:card" content="" />
             </Helmet>
 
-            {
-                globalScope.activated === 'tpzl' ?
-                    this.renderRegister()
-                    :
-                    this.renderTeaser()
-            }
+            <div className="page-content">
+                <div className={`couple-name p-0 mt-0 ${this.state.guestData ? 'info' : ''}`}>TienPing & ZhiLing</div>
+
+                {
+                    globalScope.activated === 'tpzl' ?
+                        this.renderRegister()
+                        :
+                        this.renderTeaser()
+                }
+
+                <div
+                    className="buttons animated slideInDown"
+                    onClick={this.props.onClose}
+                >
+                    <NavLink className="button" to="/">
+                        Back to Home Page
+                    </NavLink>
+                </div>
+            </div>
         </div>
     );
 }

@@ -12,18 +12,27 @@
     bottom: 0;
 }
 
-nav.navbar.navbar-default {
-    position: absolute;
-    background: black !important;
-    left: 0;
-    right: 0;
-    height: 50px;
-    transition: height 1s;
+@media screen and (max-width: 768px) {
+    .header-bg { display: none; }
+    .mobile-menu { display: none; }
+    nav.navbar.navbar-default {
+        position: absolute;
+        background: black !important;
+        left: 0;
+        right: 0;
+        height: 50px;
+        transition: height 1s;
 
-    &.showNavbar {
-        height: 320px;
+        &.showNavbar {
+            height: 320px;
+
+            .mobile-menu {
+                display: block;
+            }
+        }
     }
 }
+
 #qbootstrap-header #navbar.navbar-collapse {
     ul.navbar-nav {
         li span {

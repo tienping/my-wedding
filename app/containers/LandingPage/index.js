@@ -93,42 +93,69 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                         // marginTop: topNavSetting && topNavSetting.length ? '-64px' : '-35px',
                     }}
                 >
-                    {/* <div className="header-bg" /> */}
+                    <div className="header-bg" />
                     <div className="container">
                         {/* <div className="row"> */}
-                        <nav className={`navbar navbar-default ${this.state.showNavbar ? 'showNavbar' : ''}`}>
+                        <nav className={`navbar navbar-default ${this.state.showNavbar ? 'showNavbar active' : ''}`}>
                             <div className="navbar-header">
                                 {/* Mobile Toggle Menu Button */}
                                 <div
-                                    className="qbootstrap-nav-toggle"
+                                    className="js-qbootstrap-nav-toggle qbootstrap-nav-toggle"
                                     onClick={() => {
                                         this.setState({ showNavbar: !this.state.showNavbar });
                                     }}
                                 ><i></i></div>
                                 <a className="navbar-brand" href="/">TienPing & ZhiLing</a>
                             </div>
-                            {
-                                this.state.showNavbar ?
-                                    <div className="animated fadeInLeft">
-                                        <div id="navbar" className="navbar-collapse animated slideInLeft">
-                                            <ul className="nav navbar-nav navbar-right">
-                                                <li className="active"><a href="" data-nav-section="home"><span>Home</span></a></li>
-                                                <li><a href="" data-nav-section="couple"><span>Couple</span></a></li>
-                                                <li><a href="" data-nav-section="countdown"><span>Countdown</span></a></li>
-                                                <li><a href="" data-nav-section="groom-bride"><span>Groom &amp; Bride</span></a></li>
-                                                {/* <li><a href="" data-nav-section="story"><span>Love Story</span></a></li> */}
-                                                {/* <li><a href="" data-nav-section="greetings"><span>Greetings</span></a></li> */}
-                                                {/* <li><a href="" data-nav-section="people"><span>People</span></a></li> */}
-                                                <li><a href="" data-nav-section="when-where"><span>When &amp; Where</span></a></li>
-                                                <li><a href="" data-nav-section="rsvp"><span>RSVP</span></a></li>
-                                                {/* <li><a href="" data-nav-section="gallery"><span>Gallery</span></a></li> */}
-                                                {/* <li><a href="" data-nav-section="blog"><span>Blog</span></a></li> */}
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    :
-                                    null
-                            }
+                            <div className={`mobile-menu animated fadeInLeft ${this.state.showNavbar ? 'showNavbar' : ''}`}>
+                                <div id="navbar" className="navbar-collapse animated slideInLeft">
+                                    <ul className="nav navbar-nav navbar-right">
+                                        {
+                                            [
+                                                { section: 'home', label: 'Home' },
+                                                { section: 'couple', label: 'Couple' },
+                                                { section: 'countdown', label: 'Countdown' },
+                                                { section: 'groom-bride', label: 'Groom & Bride' },
+                                                { section: 'when-where', label: 'When & Where' },
+                                                { section: 'rsvp', label: 'RSVP' },
+                                            ].map((value, index) => (
+                                                <li className={`${index === 0 ? 'active' : ''}`}>
+                                                    <a
+                                                        href=""
+                                                        className="external"
+                                                        data-nav-section={value.section}
+                                                        onClick={(event) => {
+                                                            this.setState({ showNavbar: false });
+                                                            const navbar = window.$('#navbar');
+
+                                                            if (window.$(`[data-section="${value.section}"]`).offset()) {
+                                                                window.$('html, body').animate({
+                                                                    scrollTop: window.$(`[data-section="${value.section}"]`).offset().top,
+                                                                }, 500);
+                                                            }
+
+                                                            if (navbar.is(':visible')) {
+                                                                navbar.removeClass('in');
+                                                                navbar.attr('aria-expanded', 'false');
+                                                                window.$('.js-qbootstrap-nav-toggle').removeClass('active');
+                                                            }
+
+                                                            event.preventDefault();
+                                                        }}
+                                                    >
+                                                        <span>{value.label}</span>
+                                                    </a>
+                                                </li>
+                                            ))
+                                        }
+                                        {/* <li><a href="" data-nav-section="story"><span>Love Story</span></a></li> */}
+                                        {/* <li><a href="" data-nav-section="greetings"><span>Greetings</span></a></li> */}
+                                        {/* <li><a href="" data-nav-section="people"><span>People</span></a></li> */}
+                                        {/* <li><a href="" data-nav-section="gallery"><span>Gallery</span></a></li> */}
+                                        {/* <li><a href="" data-nav-section="blog"><span>Blog</span></a></li> */}
+                                    </ul>
+                                </div>
+                            </div>
                         </nav>
                         {/* </div> */}
                     </div>

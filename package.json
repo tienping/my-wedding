@@ -288,6 +288,7 @@
         "filepond-plugin-image-preview": "^4.0.5",
         "filepond-plugin-image-resize": "^2.0.4",
         "filepond-plugin-image-transform": "^3.2.4",
+        "firebase": "^7.2.0",
         "fontfaceobserver": "2.0.9",
         "history": "4.6.3",
         "hoist-non-react-statics": "2.1.1",

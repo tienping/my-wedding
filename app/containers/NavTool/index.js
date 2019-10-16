@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withRouter, NavLink } from 'react-router-dom';
@@ -78,7 +78,7 @@ export class NavTool extends React.PureComponent { // eslint-disable-line react/
 }
 
 NavTool.propTypes = {
-    dispatch: PropTypes.func.isRequired,
+    // dispatch: PropTypes.func.isRequired,
 };
 
 
