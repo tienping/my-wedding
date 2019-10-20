@@ -1,0 +1,93 @@
+.gallery-page {
+    .gallery-modal-overlay {
+        background-color: #FFFA;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1000;
+
+        .close-button {
+            color: black;
+            position: fixed;
+            right: 11%;
+            top: 4%;
+            font-size: 3vw;
+            background-color: #F003;
+            padding: 0.5vw 1vw;
+            border-radius: 50%;
+            border: 2px solid black;
+
+            &:hover {
+                background-color: #F00A;
+            }
+        }
+    }
+
+    .gallery-list {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 10px;
+        justify-content: center;
+
+        .gallery-item {
+            width: 33.33%;
+            padding: 5px;
+
+            &:hover .gallery-content {
+                transform: scale(0.98);
+            }
+
+            &.zoom {
+                z-index: 2000;
+
+                .gallery-content {
+                    transform: none;
+                    position: fixed;
+                    top: 10%;
+                    left: 10%;
+                    right: 10%;
+                }
+            }
+
+            .gallery-content {
+                transition: transform 1s, left 1s, right 1s, top 1s, position 1s;
+                border: 4px solid #000A;
+                padding: 4px;
+                background-color: burlywood;
+                position: relative;
+                top: 0%;
+                left: 0%;
+                right: 0%;
+
+                img {
+                    width: 100%;
+                    border: 1px solid white;
+                }
+            }
+        }
+    }
+
+    .buttons {
+        padding-top: 3rem;
+        text-align: center;
+
+        .home-button {
+            cursor: pointer;
+            color: black;
+            border: 2px solid gold;
+            padding: 1rem 2rem;
+            background-color: #EEEA;
+            display: inline-block;
+            border-radius: 15px;
+
+            &:hover {
+                background-color: #EEEF;
+                padding: 1.1rem 2.2rem;
+                font-weight: bold;
+                transition: 0.3s padding;
+            }
+        }
+    }
+}

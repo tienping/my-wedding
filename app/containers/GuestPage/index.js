@@ -17,8 +17,8 @@ import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 
 import CountdownTimer from 'components/CountdownTimer';
-import globalScope from 'globalScope';
 
+import globalScope from 'globalScope';
 import { guestRef } from 'firebaseUtil';
 import { dataChecking } from 'globalUtils';
 
@@ -49,7 +49,7 @@ export class GuestPage extends React.PureComponent { // eslint-disable-line reac
     renderTeaser = () => (
         <div>
             <div className="countdown-timer">
-                <CountdownTimer simple={!!this.state.guestData} />
+                <CountdownTimer simple={false && !this.state.guestData} />
             </div>
 
             <div className="section-text animated fadeInDown">

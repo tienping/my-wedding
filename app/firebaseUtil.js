@@ -13,5 +13,6 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 export const guestRef = firebase.database().ref('guest');
+export const galleryRef = firebase.database().ref('gallery');
 
 export default firebase;

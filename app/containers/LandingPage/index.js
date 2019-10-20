@@ -119,7 +119,7 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                                                 { section: 'when-where', label: 'When & Where' },
                                                 { section: 'rsvp', label: 'RSVP' },
                                             ].map((value, index) => (
-                                                <li className={`${index === 0 ? 'active' : ''}`}>
+                                                <li key={index} className={`${index === 0 ? 'active' : ''}`}>
                                                     <a
                                                         href=""
                                                         className="external"

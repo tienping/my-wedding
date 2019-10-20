@@ -54,6 +54,12 @@ export default function App() {
             path: '/qr_generator',
             component: QrGenerator,
         },
+        {
+            key: 'gallery',
+            exact: true,
+            path: '/gallery',
+            component: GalleryPage,
+        },
     ];
 
     if (globalScope.activated) {
@@ -69,12 +75,6 @@ export default function App() {
                 exact: true,
                 path: '/wishes',
                 component: AllWishesPage,
-            },
-            {
-                key: 'galleries',
-                exact: true,
-                path: '/galleries',
-                component: GalleryPage,
             },
             {
                 key: 'dashboard',

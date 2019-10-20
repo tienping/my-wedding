@@ -24,9 +24,9 @@ const pageNavBtn = [{
     name: 'Wishes',
     path: '/wishes',
 }, {
-    key: 'galleries',
-    name: 'Galleries',
-    path: '/galleries',
+    key: 'gallery',
+    name: 'Gallery',
+    path: '/gallery',
 }, {
     key: 'info',
     name: 'Info',
