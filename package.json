@@ -311,6 +311,7 @@
         "react-intl": "2.3.0",
         "react-json-view": "^1.19.1",
         "react-loadable": "4.0.3",
+        "react-masonry-component": "^6.2.1",
         "react-moment": "^0.6.6",
         "react-notifications": "^1.4.3",
         "react-paginate": "^5.0.0",

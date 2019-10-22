@@ -40,7 +40,6 @@ export class GuestPage extends React.PureComponent { // eslint-disable-line reac
         if (dataChecking(this.props, 'match', 'params', 'guest') === 'guest' && dataChecking(this.props, 'match', 'params', 'id')) {
             this.setState({ guestNum: this.props.match.params.id });
             guestRef.child(`${globalScope.firebaseDbPrefix}${this.props.match.params.id}`).once('value', (snapshot) => {
-                console.log(snapshot.val());
                 this.setState({ guestData: snapshot.val() });
             });
         }

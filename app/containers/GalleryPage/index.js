@@ -12,6 +12,7 @@ import { Helmet } from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import { withRouter, NavLink } from 'react-router-dom';
+import Masonry from 'react-masonry-component';
 
 // import globalScope from 'globalScope';
 import { galleryRef } from 'firebaseUtil';
@@ -26,19 +27,24 @@ import saga from './saga';
 // import messages from './messages';
 import './style.scss';
 
+const masonryOptions = {
+    transitionDuration: 0,
+};
+const imagesLoadedOptions = {
+    // background: '.my-bg-image-el',
+};
+
 export class GalleryPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
     constructor(props) {
         super(props);
         this.state = {
             galleryData: null,
-            zoomed: null,
+            toggleModal: null,
         };
     }
 
     componentDidMount = () => {
         galleryRef.on('value', (snapshot) => {
-            console.log(snapshot.val());
-
             const dataArr = snapshot.val();
             let result = dataArr || [];
 
@@ -67,43 +73,80 @@ export class GalleryPage extends React.PureComponent { // eslint-disable-line re
                 <meta name="description" content="Description of GalleryPage" />
             </Helmet>
             <div className="gallery-page">
-                {
-                    this.state.zoomed !== null ?
-                        <div
-                            className="gallery-modal-overlay"
-                            onClick={() => {
-                                this.setState({ zoomed: null });
-                            }}
-                        ><i className="close-button fas fa-times" /></div>
-                        :
-                        null
-                }
-                <div className="gallery-list">
+                <Masonry
+                    className={'gallery-list'} // default ''
+                    // elementType={'ul'} // default 'div'
+                    options={masonryOptions} // default {}
+                    disableImagesLoaded={false} // default false
+                    updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
+                    imagesLoadedOptions={imagesLoadedOptions} // default {}
+                >
                     {
                         this.state.galleryData ?
                             this.state.galleryData.map((item, index) => (
                                 <div
                                     key={index}
-                                    className={`gallery-item ${this.state.zoomed === index ? 'zoom' : ''}`}
+                                    className="gallery-item animated fadeIn"
                                     onClick={() => {
                                         this.setState({
-                                            zoomed: this.state.zoomed !== null ? null : index,
+                                            toggleModal: item,
                                         });
                                     }}
                                 >
-                                    <div className="gallery-content">
-                                        <img className="animated zoomIn" src={item.image} alt={item.caption} />
+                                    <div
+                                        className="gallery-content"
+                                        // style={item.extrastyle ? JSON.parse(item.extrastyle) : {}}
+                                    >
+                                        <img className="animated " src={item.thumbnail} alt={item.caption} />
                                     </div>
                                 </div>
                             ))
                             :
                             null
                     }
-                </div>
+                </Masonry>
+                {
+                    this.state.toggleModal ?
+                        <div>
+                            <div
+                                className="gallery-content-modal"
+                                onClick={() => {
+                                    this.setState({ toggleModal: null });
+                                }}
+                            >
+                                <div
+                                    className="gallery-content-modal-inner animated zoomIn"
+                                    onClick={(event) => {
+                                        event.stopPropagation();
+                                    }}
+                                >
+                                    <i
+                                        className="close-button fas fa-times"
+                                        onClick={() => {
+                                            this.setState({ toggleModal: null });
+                                        }}
+                                    />
+                                    <img
+                                        className=""
+                                        src={this.state.toggleModal.image}
+                                        alt={this.state.toggleModal.caption}
+                                    />
+                                </div>
+                            </div>
+                            <div
+                                className="gallery-modal-overlay"
+                                onClick={() => {
+                                    this.setState({ toggleModal: null });
+                                }}
+                            />
+                        </div>
+                        :
+                        null
+                }
+
                 <div className="buttons">
                     <div
                         className="home-button animated fadeInUp"
-                        onClick={this.props.onClose}
                     >
                         <NavLink className="button" to="/">
                             Back to Home Page

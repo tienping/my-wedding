@@ -393,7 +393,7 @@ export class LandingPage extends React.PureComponent { // eslint-disable-line re
                                                 <div className="date">
                                                     <i className="far fa-clock"></i>
                                                     <span>09:00 AM</span>
-                                                    <span>11:30 AM</span>
+                                                    <span>10:30 AM</span>
                                                 </div>
                                             </div>
                                         </div>

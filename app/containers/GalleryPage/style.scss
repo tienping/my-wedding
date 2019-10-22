@@ -1,58 +1,26 @@
 .gallery-page {
-    .gallery-modal-overlay {
-        background-color: #FFFA;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 1000;
-
-        .close-button {
-            color: black;
-            position: fixed;
-            right: 11%;
-            top: 4%;
-            font-size: 3vw;
-            background-color: #F003;
-            padding: 0.5vw 1vw;
-            border-radius: 50%;
-            border: 2px solid black;
-
-            &:hover {
-                background-color: #F00A;
-            }
-        }
-    }
-
     .gallery-list {
-        display: flex;
-        flex-wrap: wrap;
         margin: 10px;
-        justify-content: center;
 
         .gallery-item {
-            width: 33.33%;
             padding: 5px;
+            width: 25%;
+            @media screen and (max-width: 1400px) {
+                width: 33.33%;
+            }
+            @media screen and (max-width: 1000px) {
+                width: 50%;
+            }
+            @media screen and (max-width: 700px) {
+                width: 100%;
+            }
 
             &:hover .gallery-content {
                 transform: scale(0.98);
             }
 
-            &.zoom {
-                z-index: 2000;
-
-                .gallery-content {
-                    transform: none;
-                    position: fixed;
-                    top: 10%;
-                    left: 10%;
-                    right: 10%;
-                }
-            }
-
             .gallery-content {
-                transition: transform 1s, left 1s, right 1s, top 1s, position 1s;
+                transition: transform 0.35s;
                 border: 4px solid #000A;
                 padding: 4px;
                 background-color: burlywood;
@@ -67,6 +35,59 @@
                 }
             }
         }
+    }
+
+    .gallery-content-modal {
+        position: fixed;
+        top: 10%;
+        left: 10%;
+        right: 10%;
+        height: 100%;
+        max-height: 80%;
+        max-width: 80%;
+        z-index: 2000;
+        text-align: center;
+
+        .gallery-content-modal-inner {
+            height: 100%;
+            height: 100%;
+            display: inline-block;
+            position: relative;
+
+            .close-button {
+                top: -5%;
+                right: -3%;
+                position: absolute;
+                color: black;
+                font-size: 3vw;
+                background-color: #F003;
+                padding: 0.5vw 1vw;
+                border-radius: 50%;
+                border: 2px solid black;
+
+                &:hover {
+                    background-color: #F00A;
+                }
+            }
+
+            img {
+                max-width: 100%;
+                max-height: 100%;
+                background-color: burlywood;
+                border: 4px solid #000A;
+                padding: 4px;
+            }
+        }
+    }
+
+    .gallery-modal-overlay {
+        background-color: #FFFA;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1990;
     }
 
     .buttons {
