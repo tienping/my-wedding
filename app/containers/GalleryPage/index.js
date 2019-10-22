@@ -13,6 +13,7 @@ import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import { withRouter, NavLink } from 'react-router-dom';
 import Masonry from 'react-masonry-component';
+import { LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-component';
 
 // import globalScope from 'globalScope';
 import { galleryRef } from 'firebaseUtil';
@@ -28,7 +29,7 @@ import saga from './saga';
 import './style.scss';
 
 const masonryOptions = {
-    transitionDuration: 0,
+    transitionDuration: 1,
 };
 const imagesLoadedOptions = {
     // background: '.my-bg-image-el',
@@ -63,6 +64,10 @@ export class GalleryPage extends React.PureComponent { // eslint-disable-line re
             result = result.sort((item1, item2) => (item1.arrangement || 0) - (item2.arrangement || 0));
 
             this.setState({ galleryData: result });
+
+            setTimeout(() => {
+                this.setState({ dataLoaded: true });
+            }, 1000);
         });
     }
 
@@ -80,6 +85,7 @@ export class GalleryPage extends React.PureComponent { // eslint-disable-line re
                     disableImagesLoaded={false} // default false
                     updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
                     imagesLoadedOptions={imagesLoadedOptions} // default {}
+                    ref={(ref) => { this.masonryInstance = this.masonryInstance || ref.masonry; }}
                 >
                     {
                         this.state.galleryData ?
@@ -94,10 +100,24 @@ export class GalleryPage extends React.PureComponent { // eslint-disable-line re
                                     }}
                                 >
                                     <div
-                                        className="gallery-content"
+                                        className={`gallery-content  ${this.state.dataLoaded ? 'add-min-height' : ''}`}
                                         // style={item.extrastyle ? JSON.parse(item.extrastyle) : {}}
                                     >
-                                        <img className="animated " src={item.thumbnail} alt={item.caption} />
+                                        {
+                                            item.thumbnail ?
+                                                <LazyLoadImage
+                                                    className="animated "
+                                                    src={item.thumbnail}
+                                                    alt={item.caption}
+                                                    afterLoad={() => {
+                                                        if (this.masonryInstance) {
+                                                            this.masonryInstance.layout();
+                                                        }
+                                                    }}
+                                                />
+                                                :
+                                                null
+                                        }
                                     </div>
                                 </div>
                             ))
@@ -182,4 +202,5 @@ export default compose(
     withSaga,
     withConnect,
     withRouter,
+    trackWindowScroll,
 )(GalleryPage);
