@@ -20,7 +20,7 @@ import CountdownTimer from 'components/CountdownTimer';
 
 import globalScope from 'globalScope';
 import { guestRef } from 'firebaseUtil';
-import { dataChecking } from 'globalUtils';
+import { dataChecking, setCookie, getCookie } from 'globalUtils';
 
 import makeSelectGuestPage from './selectors';
 import reducer from './reducer';
@@ -41,6 +41,21 @@ export class GuestPage extends React.PureComponent { // eslint-disable-line reac
             this.setState({ guestNum: this.props.match.params.id });
             guestRef.child(`${globalScope.firebaseDbPrefix}${this.props.match.params.id}`).once('value', (snapshot) => {
                 this.setState({ guestData: snapshot.val() });
+                setCookie('tpzl_guest_info', JSON.stringify(snapshot.val()));
+            });
+            setCookie('tpzl_token', this.props.match.params.id);
+        } else if (getCookie('tpzl_guest_info')) {
+            try {
+                console.log(getCookie('tpzl_guest_info'));
+                const guestInfo = getCookie('tpzl_guest_info');
+                this.setState({ guestData: guestInfo });
+            } catch (error) {
+                console.log('Error when parsing JSON.', error);
+            }
+        } else if (getCookie('tpzl_token')) {
+            guestRef.child(`${globalScope.firebaseDbPrefix}${this.props.match.params.id}`).once('value', (snapshot) => {
+                this.setState({ guestData: snapshot.val() });
+                setCookie('tpzl_guest_info', JSON.stringify(snapshot.val()));
             });
         }
     }
@@ -133,6 +148,9 @@ export class GuestPage extends React.PureComponent { // eslint-disable-line reac
                 >
                     <NavLink className="button" to="/">
                         Back to Home Page
+                    </NavLink>
+                    <NavLink className="button" to="/gallery">
+                        Gallery
                     </NavLink>
                 </div>
             </div>
