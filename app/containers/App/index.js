@@ -60,22 +60,22 @@ export default function App() {
             path: '/gallery',
             component: GalleryPage,
         },
+        {
+            key: 'add_wish',
+            exact: true,
+            path: '/add_wish',
+            component: WishesPage,
+        },
+        {
+            key: 'wishes',
+            exact: true,
+            path: '/wishes',
+            component: AllWishesPage,
+        },
     ];
 
     if (globalScope.activated) {
         pathArray.push(...[
-            {
-                key: 'add_wish',
-                exact: true,
-                path: '/add_wish',
-                component: WishesPage,
-            },
-            {
-                key: 'wishes',
-                exact: true,
-                path: '/wishes',
-                component: AllWishesPage,
-            },
             {
                 key: 'dashboard',
                 exact: true,

@@ -14,5 +14,9 @@ firebase.initializeApp(firebaseConfig);
 
 export const guestRef = firebase.database().ref('guest');
 export const galleryRef = firebase.database().ref('gallery');
+export const wishRef = firebase.database().ref('wish');
+
+export const firebaseStorage = firebase.storage().ref();
+export const firebaseStorageTaskState = firebase.storage.TaskState;
 
 export default firebase;
